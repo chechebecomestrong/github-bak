@@ -261,6 +261,512 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/28/DOM事件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/28/DOM事件/" itemprop="url">DOM事件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T16:03:14+08:00">
+                2018-06-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,542
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###基础是进步的基石。<br>JS和HTML的交互基于事件。<br><br>事件流<br>描述的是从页面中接受事件的顺序<br>IE：事件冒泡流<br>Netscape：事件捕获流</p>
+<p>事件冒泡：即事件最开始由最具体的元素（文档中嵌套层次最深的那个节点）接收，逐级向上传播至最不具体的那个节点（文档）。<br>click在input-&gt;div-&gt;body-&gt;document</p>
+<p>事件捕获：不太具体的节点应该更早接收到事件， 而最具体的节点最后接收到事件。<br>document-&gt;body-&gt;div-&gt;input<br>使用事件处理程序<br>1、HTML事件处理程序<br>把事件直接加在HTML结构里。<br>缺点：HTML和JS代码紧密耦合<br>2、DOM0级事件处理程序<br>把一个函数赋值给一个事件的处理程序属性，是用的比较多的方法<br>简单，跨浏览器<br>先取一个元素，把事件作为元素的属性，没有HTML事件的缺点。<br>var btn = document.getElementById(‘dd);<br>btn.onclick=function(){}<br>btn.onclick=null;//取消了onclick事件<br>3、DOM2级事件处理程序<br>定义了两个方法：<br>用于处理指定和删除事件处理程序的操作<br>addEventListener()和removeEventListener()<br>接收3个参数：<br>要处理的事件名、作为事件处理程序的函数和布尔值（true：事件捕获，false：事件冒泡）<br>var btn = document.getElementById(‘dd);<br>btn.addEventListener(‘click’,fun,false); //onclick换成click，onmouseover换成mouseover,以此类比，设置成false作为一个冒泡事件从而让大多数浏览器兼容<br>btn.removeEventListener(‘click’,fun,false)  //传递和addEventListenery一样的参数才能删除，而且addEventListener的事件必须由removeEventListener才能删除<br>DOM0级和DOM2级可以添加多个事件以及多个事件处理程序<br>但是IE不支持，因此以下是IE的事件处理程序<br>4、IE事件处理程序<br>两个参数，事件处理程序的名称和事件处理程序的函数<br>attachEvent()添加事件<br>detachEvent()删除事件<br>不使用第三个参数的原因是：IE8以及以前的版本只支持事件冒泡。<br>var btn = document.getElementById(‘dd);<br>btn.attachEvent(‘onclick’,fun); //这个时候的事件又要加on了，后面第二个参数是函数名<br>btn.detachEvent(‘onclick’,fun) //删除事件<br>5、跨浏览器的事件处理程序<br>可以封装在一个对象内，能力检测<br>var eventUtil = {<br>    //添加事件<br>    addfun:function(element,type,handler){      //type传没有on的<br>        if(element.addEventListener){           //DOM2级<br>            element.addEventListener(type,handler,false);<br>        }else if(element.attachEvent){          //IE<br>            element.attachEvent(‘on’+type,handler)<br>        }else{                                  //DOM0级<br>            element[‘on’+type]=handler;                              //element.onclick === element[‘onclick]<br>        }<br>    }<br>    //同理，可写删除事件<br>}<br>事件对象：在出发DOM上的事件时都会产生一个对象<br>事件对象event<br>1、DOM中的事件对象<br>function f(event){<br>    alert(event.type)<br>    alert(event.target)<br>    event.stopPropagation();   //阻止事件冒泡<br>}<br>属性：<br>type事件类型<br>target事件目标<br>方法：<br>stopPropagation()阻止事件冒泡<br>preventDefault()阻止事件的默认行为<br>另外还有<br>bubbles<br>canselable<br>等等事件对象<br>2、IE事件对象<br>属性：<br>type 事件类型<br>srcElement 事件来源<br>function f(event){<br>    event = event||window.event; //IE8之前都是window.event<br>    var ele = event.target||event.srcElement;<br>    alert(ele)<br>}<br>cancelBubble 用于阻止事件冒泡 //true表示阻止冒泡，false为不阻止冒泡<br>returnValue 用于阻止事件的默认行为 //false表示阻止事件的默认行为</p>
+<p>不同的事件类型<br>大致分两类<br>鼠标事件<br>键盘事件</p>
+<p>鼠标事件都是在浏览器窗口中的特定位置上发生的。<br>这个位置信息保存在事件的clientX和clientY属性中。<br>所有浏览器都支持这两个属性，<br>它们的值表示事件发生时鼠标指针在视口中的水平和垂直坐标。不包括页面滚动的距离。<br>拖拽demo<br>为了浏览器兼容：<br>function getByClass(clsName,parent){<br>    var oParent = parent?document.getElementById(parent):document,<br>        eles=[],<br>        elements=oParent.getElementsByTagName(‘*’);<br>    for(var i=0,l=elements.length;i&lt;l;i++&gt;){<br>        if(elements[i].className==className){<br>            eles.push(elements[i]);<br>        }<br>    }<br>    return eles;<br>}<br>window.onload = drag;<br>function drag(){<br>    var oTitle = getByClass(‘标题’,’面板’)[0];<br>    //拖拽<br>    oTitle.onmousedown=fnDown;<br>    //关闭<br>    var oclose = document.getElementById(‘关闭按钮id’);<br>    oclose.onclick=function(){<br>        document.getElementById(‘要隐藏的面板id’).style.display = ‘none’;<br>    }<br>    //状态切换,初始的时候只有按钮，点击后显示各种状态的ul列表，在每个li上都有一个id的类来显示是什么状态<br>    var state = document.getElementById(‘切换按钮id’)，<br>        stateList = document.getElementById(‘状态列表’),<br>        lis = stateList.getElementsByTagName(‘li’),<br>        stateTxt = document.getElementById(‘状态文本框’),<br>        stateShow = document.getElementById(‘状态显示’);</p>
+<pre><code>state.onclick = function(e){
+    e = e || window.event;  
+    //阻止事件冒泡
+    if(e.stopPropagation){
+        e.stopPropagation();
+    }else{
+        e.cancelBubble = true;
+    }
+
+    stateList.style.display = &apos;block&apos;;
+}
+//鼠标滑过、离开和点击状态列表时
+for(var i =0,l=lis.length;i&lt;l;i++){
+    lis[i].onmouseover=function(){
+        this.style.background = &apos;#567&apos;;
+    }
+    lis[i].onmouseout = function(){
+        this.style.background = &apos;#fff&apos;;
+    }
+    lis[i].onclick = function(e){
+        e = e || window.event;  
+        //阻止事件冒泡
+        if(e.stopPropagation){
+            e.stopPropagation();
+        }else{
+            e.cancelBubble = true;
+        }
+
+        var id = this.id;
+        stateList.style.display = &apos;none&apos;;
+        stateTxt.innerHTML=getByClass(&apos;ul中每个li下的div的类&apos;,id)[0].innerHTML; //父id
+        stateShow.className =&apos;&apos;;
+        stateShow.className =&apos;原来的类 &apos;+id;//一定要有个空格
+    }
+}
+
+//列表在其他的空白地方应该让状态列表隐藏,但是要注意事件冒泡
+document.onclick = function(){
+    stateList.style.display = &apos;none&apos;;
+}
+</code></pre><p>}<br>function fnDown(event){<br>    event = event || window.event;<br>    var oDrag = document.getElementById(‘面板’),<br>        //光标按下时光标和面板之间的距离<br>        disX = event.clientX-oDrag.offsetLeft，<br>        disY = event.clientY-oDrag.offserTop;<br>        //移动<br>    document.onmousemove = function(event){<br>        event = event || window.event;<br>        fnMove(event,disX,disY);<br>    }<br>    //释放<br>    document.onmouseup = function(){<br>        document.onmousemove = null;<br>        document.onmouseup = null;<br>    }<br>}</p>
+<p>function fnMove(e,posX,posY){<br>    var oDrag = document.getElementById(‘面板’),<br>        l = e.clientX-posX,<br>        t = e.clientY-posY,<br>        winW = document.documentElement.clientWidth || document.body.clientWidth,<br>        winH = document.documentElement.clientHeight || document.body.clentHeight,<br>        maxW = winW-oDrag.offsetWidth,<br>        maxH = winH-oDrag.offsetHeight;<br>    if(l&lt;0){<br>        l=0;<br>    }else if(l&gt;maxW){<br>        l=maxW;<br>    }<br>    if(t&lt;0){<br>        t=0;<br>    }else if(t&gt;maxH){<br>        t=maxH;<br>    }<br>    oDrag.style.left = l+’px’;<br>    oDrag.style.top = t+’px’;<br>}</p>
+<p>窗口关闭<br>document.getElementById(‘id’).style.display = ‘none’; </p>
+<p>除了鼠标事件之外，还有键盘事件</p>
+<p>keyDown:当用户按下键盘上的任意键时触发，而且如果按住不放的话，会重复触发此事件<br>keyPress:当用户按下键盘上的字符键时触发，而且如果按住不放的话，会重复触发此事件<br>keyUp:当用户释放键盘上的键时触发，按下然后抬起后触发事件</p>
+<p>event对象的keyCode属性用于得到键盘对应键的键码值</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/结构与表现原则/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/27/结构与表现原则/" itemprop="url">结构与表现原则</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T14:53:05+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  114
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###基础是进步的基石。<br>接触网页制作的时候，都会讲到<br>HTML，CSS，JavaScript分别代表结构、表现和行为。<br>一直在强调结构和表现相分离的原则<br>结构和表现的分离要注重的是：<br>HTML的结构和语义化，然后考虑布局和表现形式</p>
+<p>步骤为：<br>先按照结构和语义编写代码<br>然后进行CSS样式设置<br>减少HTML与CSS契合度 </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/27/css布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/27/css布局/" itemprop="url">css布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-27T13:43:59+08:00">
+                2018-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  374
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###基础是进步的基石。<br>看到群里有人在问有没有人有仿过百度的一整套的页面布局，结果是没有。百度作为日常用的最多的网站之一，在群里没有一个人回答，可能仿百度的人应该也少，毕竟没有谁在用不着那样的布局去仿一个工作上用不到的网站。我以为是类似于作业一类的东西，毕竟作业那种东西，随便来点就行了，了解过后，竟然真的有个公司的产品设计图给前端的就是类似百度的排版布局。<br>说到仿大网站的排版布局，在大四的时候因为涉及到毕业设计的排版，我曾经仿过京东的页面布局，因为京东各种改版，最新版的京东的页面也和我仿的那一版有很多出入了。突然就想到自己最近都没怎么仿过大网站的布局和排版，于是有了仿个百度试试的想法。然后，就没有了然后，随着前端框架的流行，我现在仿排版布局的能力竟然比不上大四的我。再多的框架的流行，出现再多的新技术，都不能忘记基础。<br>痛定思痛，从菜鸟迈向小白之路，基础是最不能丢的一部分。<br>所以，就先从基础开始记录吧。</p>
+<hr>
+<p>首先，css布局</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/23/hello-hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -607,7 +1113,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +1126,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
