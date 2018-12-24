@@ -261,197 +261,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/24/用sinopia搭建私有库/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cheche">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/24/用sinopia搭建私有库/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-24T11:31:45+08:00">
-                2018-12-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  757
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>2018年10月17日<br>使用sinopia的优势：<br>配置简单<br>不需要数据库，sinopia内置有一个数据库了<br>开启即用<br>当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地<br>1、服务器安装sinopia<br>sudo npm install sinopia -g<br>如上图所示即为安装完成<br>运行  sinopia<br>这个时候会出现两个warn<br>一个是config<br>一个是地址，是本地的地址，只能本地访问。<br>本地访问这个接口，可以用ping的方式，显示是通的。<br>2、服务器配置sinopia</p>
-<pre><code># https://github.com/rlidwka/sinopia/tree/master/conf
-#
-# path to a directory with all packages
-storage: ./storage
-auth:
-htpasswd:
-file: ./htpasswd
-# Maximum amount of users allowed to register, defaults to &quot;+inf&quot;.
-# You can set this to -1 to disable registration.
-max_users: -1
-#改为-1，禁止注册
-# a list of other known repositories we can talk to
-uplinks:
-npmjs:
-url: https://registry.npm.taobao.org/
-packages:
-&apos;@*/*&apos;:
-# scoped packages
-access: $all
-publish: $authenticated
-&apos;*&apos;:
-# allow all users (including non-authenticated users) to read and
-# publish all packages
-#
-# you can specify usernames/groupnames (depending on your auth plugin)
-# and three keywords: &quot;$all&quot;, &quot;$anonymous&quot;, &quot;$authenticated&quot;
-access: $all
-# allow all known users to publish packages
-# (anyone can register by default, remember?)
-publish: $authenticated
-# if package is not available locally, proxy requests to &apos;npmjs&apos; registry
-proxy: npmjs
-# log settings
-logs:
-- {type: stdout, format: pretty, level: http}
-#- {type: file, path: sinopia.log, level: info}
-#sinopia源的地址是本机ip:4873
-#默认没有,只能在本机访问，添加后可以通过外网访问
-listen: 0.0.0.0:4873
-</code></pre><p>3、改变本地的npm源<br>推荐使用nrm来管理<br>（1）安装nrm<br>npm install nrm -g<br>(2)只需要输入 nrm<br>可以看到很多的命令提示<br>这个sinopia是安装在某个环境<br>所以在本地增加安装在某个的源：<br>nrm add sinopia http://你的地址:4873<br>nrm use sinopia<br>以上设置就可以用我们搭建好的私有npm了<br>安装完成之后，你通过npm install 安装的包，sinopia都会帮你缓存到本地。只要安装过，再次下载到本地会很快。<br>4、注册账号<br>确认自己的npm源在我们私有的库里。<br>npm adduser<br>按照提示，输入相关信息<br>这样就可以成为开发者了。<br>在注册的时候，很有可能注册不成功。可以用下面的方法来增加开发者。<br>用户名+密码-&gt;sha1<br>将上面的字符串写入和config.yml同目录下的htpasswd中，至此就可以增加用户了。<br>如果已经有账号，直接运行 npm login<br>5、上传自己的包<br>npm init<br>填写包信息<br>写完后，<br>运行 npm publish 发布新包<br>6、登录http://你的地址:4873<br>login→填写自己的用户名和密码，登录后就可以看当前的私有npm管理器中局域网内提交的包<br>7、install到本地<br>npm init<br>生成一个pakage.json<br>npm install<br>这样可以获取sinopia里所有的包的信息<br>如果要安装一个名字叫aa的包<br>那么可以运行下面的语句：<br>npm install aa<br>本地会生成一个node_module的文件夹，然后文件夹里会有aa的包<br>在项目中，需要用的这个包的时候，引用即可</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/18/verdaccio——新的代码仓库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -720,6 +529,197 @@ document.getElementById(&apos;app&apos;).innerHTML = html;
 &lt;/script&gt;
 &lt;/body&gt;
 </code></pre><p>运行结果就是在网页中渲染出了<br>hello world<br>*需要注意的是：如果在模版中使用js模版引擎——artTemplate，会渲染出</p><p>hello world </p><br>所以值得注意的是，数据需不需要原文输出。<br>也可以在浏览器中预编译，这种预编译是使用了webpack的loader<br><a href="http://aui.github.io/art-template/zh-cn/docs/index.html" target="_blank" rel="noopener">http://aui.github.io/art-template/zh-cn/docs/index.html</a><br>更多详细的可以看一下官方的文档。<br>对于模版，我们可以做的还有很多。<p></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/17/用sinopia搭建私有库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/17/用sinopia搭建私有库/" itemprop="url">用sinopia搭建私有库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T20:22:34+08:00">
+                2018-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  757
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>2018年10月17日<br>使用sinopia的优势：<br>配置简单<br>不需要数据库，sinopia内置有一个数据库了<br>开启即用<br>当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地<br>1、服务器安装sinopia<br>sudo npm install sinopia -g<br>如上图所示即为安装完成<br>运行  sinopia<br>这个时候会出现两个warn<br>一个是config<br>一个是地址，是本地的地址，只能本地访问。<br>本地访问这个接口，可以用ping的方式，显示是通的。<br>2、服务器配置sinopia</p>
+<pre><code># https://github.com/rlidwka/sinopia/tree/master/conf
+#
+# path to a directory with all packages
+storage: ./storage
+auth:
+htpasswd:
+file: ./htpasswd
+# Maximum amount of users allowed to register, defaults to &quot;+inf&quot;.
+# You can set this to -1 to disable registration.
+max_users: -1
+#改为-1，禁止注册
+# a list of other known repositories we can talk to
+uplinks:
+npmjs:
+url: https://registry.npm.taobao.org/
+packages:
+&apos;@*/*&apos;:
+# scoped packages
+access: $all
+publish: $authenticated
+&apos;*&apos;:
+# allow all users (including non-authenticated users) to read and
+# publish all packages
+#
+# you can specify usernames/groupnames (depending on your auth plugin)
+# and three keywords: &quot;$all&quot;, &quot;$anonymous&quot;, &quot;$authenticated&quot;
+access: $all
+# allow all known users to publish packages
+# (anyone can register by default, remember?)
+publish: $authenticated
+# if package is not available locally, proxy requests to &apos;npmjs&apos; registry
+proxy: npmjs
+# log settings
+logs:
+- {type: stdout, format: pretty, level: http}
+#- {type: file, path: sinopia.log, level: info}
+#sinopia源的地址是本机ip:4873
+#默认没有,只能在本机访问，添加后可以通过外网访问
+listen: 0.0.0.0:4873
+</code></pre><p>3、改变本地的npm源<br>推荐使用nrm来管理<br>（1）安装nrm<br>npm install nrm -g<br>(2)只需要输入 nrm<br>可以看到很多的命令提示<br>这个sinopia是安装在某个环境<br>所以在本地增加安装在某个的源：<br>nrm add sinopia http://你的地址:4873<br>nrm use sinopia<br>以上设置就可以用我们搭建好的私有npm了<br>安装完成之后，你通过npm install 安装的包，sinopia都会帮你缓存到本地。只要安装过，再次下载到本地会很快。<br>4、注册账号<br>确认自己的npm源在我们私有的库里。<br>npm adduser<br>按照提示，输入相关信息<br>这样就可以成为开发者了。<br>在注册的时候，很有可能注册不成功。可以用下面的方法来增加开发者。<br>用户名+密码-&gt;sha1<br>将上面的字符串写入和config.yml同目录下的htpasswd中，至此就可以增加用户了。<br>如果已经有账号，直接运行 npm login<br>5、上传自己的包<br>npm init<br>填写包信息<br>写完后，<br>运行 npm publish 发布新包<br>6、登录http://你的地址:4873<br>login→填写自己的用户名和密码，登录后就可以看当前的私有npm管理器中局域网内提交的包<br>7、install到本地<br>npm init<br>生成一个pakage.json<br>npm install<br>这样可以获取sinopia里所有的包的信息<br>如果要安装一个名字叫aa的包<br>那么可以运行下面的语句：<br>npm install aa<br>本地会生成一个node_module的文件夹，然后文件夹里会有aa的包<br>在项目中，需要用的这个包的时候，引用即可</p>
 
           
         
