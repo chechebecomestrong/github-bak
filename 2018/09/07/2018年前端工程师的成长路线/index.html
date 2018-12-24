@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="干货,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。把这篇文章简单的结构说一下：基础知识：HTMLHTML语法拆分页面CSSCSS语法Grid和Flexbox">
+<meta name="keywords" content="干货">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018年前端工程师的成长路线">
+<meta property="og:url" content="http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/index.html">
+<meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+<meta property="og:description" content="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。把这篇文章简单的结构说一下：基础知识：HTMLHTML语法拆分页面CSSCSS语法Grid和Flexbox">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-24T03:34:37.392Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018年前端工程师的成长路线">
+<meta name="twitter:description" content="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。把这篇文章简单的结构说一下：基础知识：HTMLHTML语法拆分页面CSSCSS语法Grid和Flexbox">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/">
+
+
+
+
+
+  <title>2018年前端工程师的成长路线 | 从菜鸟到小白的进阶之路|cheche的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+<a href="https://github.com/chechebecomestrong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从菜鸟到小白的进阶之路|cheche的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">可能会有干货</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2018年前端工程师的成长路线</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T21:34:07+08:00">
+                2018-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  556
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c" target="_blank" rel="noopener">https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c</a><br>来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。<br>把这篇文章简单的结构说一下：<br>基础知识：<br>HTML<br>HTML语法<br>拆分页面<br>CSS<br>CSS语法<br>Grid和Flexbox<br>媒体查询和响应式布局<br> JavaScript<br>JavaScript语法<br>操作DOM<br>作用域、闭包、变量提升<br>Ajax（XHR）<br>ES6特性<br>使用HTML/CSS/JavaScript写一个网站<br>为GitHub提PR<br>优化UI<br>解决issue<br>重构代码<br>包管理工具<br>npm<br>yarn<br>使用npm或者yarn模块<br>CSS预处理器：增强CSS的功能，比如支持变量、计算以及函数等<br>Sass<br>Postcss<br>Less<br>stylus<br>CSS框架<br>bootstrap<br>materialize CSS<br>bulma<br>CSS规范：大型前段项目的CSS会变得混乱，难以维护，需要使用规范<br>bem<br>oocss<br>smacss<br>suitcss<br>atomic<br>构建工具：包括代码校验、任务管理以及文件打包工具<br>代码校验<br>eslint<br>jslint<br>jshint<br>jscs<br>任务管理<br>npm script<br>gulp<br>grunt<br>文件打包<br>webpack<br>rollup<br>parcel<br>开发一个npm模块：到了这一步就完成了75%了！写一个npm模块，开源道GitHub上并且发布）<br>前端框架：任一选择一个，不要选angularJs1<br>react.js<br>redux<br>mobx<br>vuejs<br>vuex<br>angular<br>rx.js<br>type script<br>使用框架开发网站，学习如何进行性能优化<br>测试：自动化测试可以有效提高效率<br>jest<br>mocha<br>protractor<br>karma<br>enzyme<br>progressive web app：学习service worker和pwa<br>静态类型检查<br>type script<br>flow<br>服务器渲染<br>react<br>next.js<br>after.js<br>angular<br>universal<br>vuejs<br>nuxt.js<br>其他技术<br>canvas<br>HTML-5 APIs<br>SVG<br>source map<br>函数式编程<br>TC39<br>剩下的没有提及到的就继续探索吧。毕竟学无止境。比如<br>web GL<br>web component<br>web assembly</p>
+<p>可以看出，我们有很多的进步空间。国内的前端和国外的前端的注重点还是不同的，比如css预处理器、css规范这两个，好像我们国内的前端并不是很重视。<br>但是可以肯定的是，基础知识是很重要的，基础知识学了之后要注意巩固。<br>温故而知新。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Cheche
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/" title="2018年前端工程师的成长路线">http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/干货/" rel="tag"><i class="fa fa-tag"></i> 干货</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/04/ui自动化测试探索——ui-recorder/" rel="next" title="ui自动化测试探索——ui recorder">
+                <i class="fa fa-chevron-left"></i> ui自动化测试探索——ui recorder
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/parcel：一款又快又简单的webapp打包工具/" rel="prev" title="parcel：一款又快又简单的webapp打包工具">
+                parcel：一款又快又简单的webapp打包工具 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Cheche">
+            
+              <p class="site-author-name" itemprop="name">Cheche</p>
+              <p class="site-description motion-element" itemprop="description">个人博客，喜欢吃语法糖，博客文章有浓烈的个人色彩，求同存异啦。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cheche</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

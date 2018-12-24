@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="探索学习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近在写npm包相关的内容。在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。于是，想了下能不能对UI进行自动化测试？答案是肯定的。首当其冲的，则是UI Recorder。是阿里巴巴的开源项目。官方的介绍十分的高大上：UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.UI Recorder 要比Selenium IDE">
+<meta name="keywords" content="探索学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ui自动化测试探索——ui recorder">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/index.html">
+<meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+<meta property="og:description" content="最近在写npm包相关的内容。在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。于是，想了下能不能对UI进行自动化测试？答案是肯定的。首当其冲的，则是UI Recorder。是阿里巴巴的开源项目。官方的介绍十分的高大上：UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.UI Recorder 要比Selenium IDE">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-24T03:33:49.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ui自动化测试探索——ui recorder">
+<meta name="twitter:description" content="最近在写npm包相关的内容。在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。于是，想了下能不能对UI进行自动化测试？答案是肯定的。首当其冲的，则是UI Recorder。是阿里巴巴的开源项目。官方的介绍十分的高大上：UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.UI Recorder 要比Selenium IDE">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/">
+
+
+
+
+
+  <title>ui自动化测试探索——ui recorder | 从菜鸟到小白的进阶之路|cheche的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+<a href="https://github.com/chechebecomestrong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从菜鸟到小白的进阶之路|cheche的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">可能会有干货</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cheche">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ui自动化测试探索——ui recorder</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T20:33:09+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,209
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近在写npm包相关的内容。<br>在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。<br>于是，想了下能不能对UI进行自动化测试？<br>答案是肯定的。<br>首当其冲的，则是UI Recorder。<br>是阿里巴巴的开源项目。<br>官方的介绍十分的高大上：<br>UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.<br>UI Recorder 要比Selenium IDE更加强大!<br>UI Recorder 非常简单易用.<br>官方网站: <a href="http://uirecorder.com/" target="_blank" rel="noopener">http://uirecorder.com/</a><br>语言切换: English, 中文<br>变更日志: CHANGE<br>视频教程：PC中文教程<br>功能<br>支持所有用户行为: 键盘事件, 鼠标事件, alert, 文件上传, 拖放, svg, shadow dom<br>支持无线native app(Android, iOS)录制, 基于macaca实现: <a href="https://macacajs.com/" target="_blank" rel="noopener">https://macacajs.com/</a><br>无干扰录制: 和正常测试无任何区别，无需任何交互<br>录制用例存储在本地<br>支持丰富的断言类型: val,text,displayed,enabled,selected,attr,css,url,title,cookie,localStorage,sessionStorage<br>支持图片对比<br>支持强大的变量字符串<br>支持公共测试用例: 允许用例中动态调用另外一个<br>支持并发测试<br>支持多国语言: 英文, 简体中文, 繁体中文<br>支持单步截图<br>支持HTML报告和JUnit报告<br>全系统支持: Windows, Mac, Linux<br>基于Nodejs的测试用例: jWebDriver<br>因为node操作起来相对较为简便。所以选择用node来探索。<br>工欲善其事必先利其器<br>1、安装<br>首先安装node 安装Chrome 安装ui recorder、mocha<br>安装完之后，需要对环境进行补充，需要另外安装Java sdk，jwedriver<br>在把环境都安装好之后，就可以进行测试了。<br>2、测试步骤<br>首先，新建一个文件夹。<br>然后进入测试环节：<br>（1）uirdcorder init 配置好之后在用ui recorder的环境  会生成一些配置文件<br>（2）生成的json文件中，可以修改config.json使配置更加符合自己的情况，而且也可以修改在init的时候配置错误的选项。<br>（3）修改好配置文件后，就可以开始录制测试用例了。<br>指令为 uirecorder start  测试用例名<br>测试用例名以.spec.js结尾<br>然后会有一些关于录制时的配置需要进一步的确定。都确认之后，终端会成为所谓的录制服务器，内部的驱动会拉起系统的浏览器。<br>这个时候会拉起两个浏览器，一个是录制浏览器，一个是检验浏览器，所有的录制动作都是在录制浏览器进行的，检验浏览器会重复录制浏览器的动作，然后在录制服务器中显示测试结果。<br>录制浏览器会有一个输入框，即输入要测试的内容，这里可以是一个url，也可以是一个脚本。点击开始录制即真正了进入了测试过程。<br>录制界面会有一排按钮框，悬浮可移动。<br>有添加悬停、添加断言、使用变量、脚本跳转、结束录制等功能。<br>在经过一些列的测试之后，可以结束录制。这个时候在录制中的所有的操作都以代码的形式出现在刚刚的.spec.js文件中。<br>所以，这个文件可以用来回看。回看需要mocha。<br>mocha 测试用例名<br>这样就可以回看刚刚的录制。<br>然后在终端，会出现各种测试动作的结果。<br>有mocha的加入，就有了可以文本化测试结果的可能。<br>source run.sh 测试用例名<br>这个时候除了会回放录制的动作，回放完后会生成一份测试报告<br>测试报告中除了一般的单元测试测试报告中显示的各项数据外，还有录制动作的截图。<br>可以实时、带代码块、带测试结果的了解整个测试过程。<br>金无足赤人无完人。<br>软件也都不是完美的：<br>这款测试框架：<br>只适用于一般的dom操作，以及一般的dom写的ui。<br>不适合我们公司的ui框架。因为我们公司的ui框架写的很精细，正常的写法测不出来。<br>如果硬写也能写出来，但是到时候测试的代码可能比开发代码还多。这样就会导致测试的成本过高。<br>因此，这个ui测试，以后可以在表格、一般的dom操作中使用。不适合用来测试本公司前端的ui框架。<br>所以，这个ui测试框架，不再做进一不的探究。需要的时候，用其基本的写法即可。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Cheche
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/" title="ui自动化测试探索——ui recorder">http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/探索学习/" rel="tag"><i class="fa fa-tag"></i> 探索学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/07/对githook的进一步理解/" rel="next" title="对githook的进一步理解">
+                <i class="fa fa-chevron-left"></i> 对githook的进一步理解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/2018年前端工程师的成长路线/" rel="prev" title="2018年前端工程师的成长路线">
+                2018年前端工程师的成长路线 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Cheche">
+            
+              <p class="site-author-name" itemprop="name">Cheche</p>
+              <p class="site-description motion-element" itemprop="description">个人博客，喜欢吃语法糖，博客文章有浓烈的个人色彩，求同存异啦。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cheche</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
