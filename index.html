@@ -830,9 +830,10 @@
         
           
             <blockquote>
-<p>不管是写组件还是写接口，最后都要回归到文档。<br>我们对于文档的需求：<br>1、最好是自动生成的</p>
+<p>不管是写组件还是写接口，最后都要回归到文档。<br>我们对于文档的需求：<br>1、最好是自动生成的<br>2、生成的最好是html的</p>
 </blockquote>
-<h2 id="2、生成的最好是html的"><a href="#2、生成的最好是html的" class="headerlink" title="2、生成的最好是html的"></a>2、生成的最好是html的</h2><p>这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具</p>
+<hr>
+<p>这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具</p>
 <p>这类工具中，推荐一个相对来说适合前端的——JSDoc<br>JSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方法参数等。类似JavaDoc和PHPDoc。现在很多编辑器或IDE中还可以通过JSDoc直接或使用插件生成智能提示。从而使开发者很容易了解整个类和其中的属性和方法，并且快速知道如何使用，从而提高开发效率，降低维护成本。</p>
 <p>在node中使用<br>1、安装<br><code>npm install -g jsdoc</code><br>或者<br><code>npm install --save-dev jsdoc</code><br>2、编写函数说明<br>按照jsdoc规定的语法进行编写<br><a href="http://www.css88.com/doc/jsdoc/about-plugins.html" target="_blank" rel="noopener">http://www.css88.com/doc/jsdoc/about-plugins.html</a><br>所有的函数说明都写在这样的注释里/*<em> </em>/<br>举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/** 这是一个测试的函数 */</span><br><span class="line">function test()&#123;&#125;</span><br><span class="line">再举一个栗子：</span><br><span class="line">/**</span><br><span class="line">*这是一个函数</span><br><span class="line">* @param a &#123;string&#125; a的解释</span><br><span class="line">* @returns &#123;string&#125; 对于返回值的解释</span><br><span class="line">*/</span><br><span class="line">function test(a)&#123;</span><br><span class="line">return a+&apos;hello&apos;;</span><br><span class="line">&#125;</span><br><span class="line">常用的语法：</span><br><span class="line">@param 记录传递给一个函数的参数</span><br><span class="line">@returns 记录一个函数的返回值</span><br><span class="line">@requires 这个文件需要一个JavaScript模块</span><br><span class="line">@function 描述一个函数或方法</span><br><span class="line">@exports 标识一个由JavaScript模块到处的成员</span><br><span class="line">@enum 描述一个相关属性的集合</span><br><span class="line">@example 提供一个如何使用描述项的例子</span><br><span class="line">@class 此函数旨在需要使用new关键字调用，即构造函数，也可以写@constructor</span><br><span class="line">@listen 列出一个标识的监听事件</span><br><span class="line">@property 记录一个对象的属性</span><br><span class="line">@see 更多详细信息请参阅其他一些文档</span><br><span class="line">@global 记录一个全局对象</span><br></pre></td></tr></table></figure></p>
 <p>3、生成<br>jsdoc 文件(路径)</p>
@@ -1099,7 +1100,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  244
                 </span>
               
 
@@ -1138,27 +1139,7 @@
       
         
           
-            <p><code>`</code></p>
-<script language="javascript">
-    var h = "";
-    h += " 网页可见区域宽：" + document.body.clientWidth + "\n";
-    h += " 网页可见区域高：" + document.body.clientHeight + "\n";
-    h += " 网页可见区域宽：" + document.body.offsetWidth + " (包括边线和滚动条的宽)" + "\n";
-    h += " 网页可见区域高：" + document.body.offsetHeight + " (包括边线的宽)" + "\n";
-    h += " 网页正文全文宽：" + document.body.scrollWidth + "\n";
-    h += " 网页正文全文高：" + document.body.scrollHeight + "\n";
-    h += " 网页被卷去的上：" + document.body.scrollTop + "\n";
-    h += " 网页被卷去的左：" + document.body.scrollLeft + "\n";
-    h += " 网页正文部分上：" + window.screenTop + "\n";
-    h += " 网页正文部分左：" + window.screenLeft + "\n";
-    h += " 屏幕分辨率的宽：" + window.screen.width + "\n";
-    h += " 屏幕分辨率的高：" + window.screen.height + "\n";
-    h += " 屏幕可用工作区宽度：" + window.screen.availWidth + "\n";
-    h += " 屏幕可用工作区高度：" + window.screen.availHeight + "\n";
-    h += " 你的屏幕设置是 " + window.screen.colorDepth + " 位彩色" + "\n";
-    h += " 你的屏幕设置 " + window.screen.deviceXDPI + " 像素/英寸" + "\n";
-    console(h);
-</script>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&quot;javascript&quot;&gt;</span><br><span class="line">    var h = &quot;&quot;;</span><br><span class="line">    h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot; (包括边线和滚动条的宽)&quot; + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页可见区域高：&quot; + document.body.offsetHeight + &quot; (包括边线的宽)&quot; + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页正文全文宽：&quot; + document.body.scrollWidth + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页正文全文高：&quot; + document.body.scrollHeight + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页被卷去的上：&quot; + document.body.scrollTop + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页被卷去的左：&quot; + document.body.scrollLeft + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页正文部分上：&quot; + window.screenTop + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 网页正文部分左：&quot; + window.screenLeft + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 屏幕分辨率的宽：&quot; + window.screen.width + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 屏幕分辨率的高：&quot; + window.screen.height + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 屏幕可用工作区宽度：&quot; + window.screen.availWidth + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 屏幕可用工作区高度：&quot; + window.screen.availHeight + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 你的屏幕设置是 &quot; + window.screen.colorDepth + &quot; 位彩色&quot; + &quot;\n&quot;;</span><br><span class="line">    h += &quot; 你的屏幕设置 &quot; + window.screen.deviceXDPI + &quot; 像素/英寸&quot; + &quot;\n&quot;;</span><br><span class="line">    console(h);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1615,7 +1596,7 @@
       
         
           
-            <p><a href="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c" target="_blank" rel="noopener">https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c</a><br>来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。<br>把这篇文章简单的结构说一下：<br>基础知识：<br>HTML<br>HTML语法<br>拆分页面<br>CSS<br>CSS语法<br>Grid和Flexbox<br>媒体查询和响应式布局<br> JavaScript<br>JavaScript语法<br>操作DOM<br>作用域、闭包、变量提升<br>Ajax（XHR）<br>ES6特性<br>使用HTML/CSS/JavaScript写一个网站<br>为GitHub提PR<br>优化UI<br>解决issue<br>重构代码<br>包管理工具<br>npm<br>yarn<br>使用npm或者yarn模块<br>CSS预处理器：增强CSS的功能，比如支持变量、计算以及函数等<br>Sass<br>Postcss<br>Less<br>stylus<br>CSS框架<br>bootstrap<br>materialize CSS<br>bulma<br>CSS规范：大型前段项目的CSS会变得混乱，难以维护，需要使用规范<br>bem<br>oocss<br>smacss<br>suitcss<br>atomic<br>构建工具：包括代码校验、任务管理以及文件打包工具<br>代码校验<br>eslint<br>jslint<br>jshint<br>jscs<br>任务管理<br>npm script<br>gulp<br>grunt<br>文件打包<br>webpack<br>rollup<br>parcel<br>开发一个npm模块：到了这一步就完成了75%了！写一个npm模块，开源道GitHub上并且发布）<br>前端框架：任一选择一个，不要选angularJs1<br>react.js<br>redux<br>mobx<br>vuejs<br>vuex<br>angular<br>rx.js<br>type script<br>使用框架开发网站，学习如何进行性能优化<br>测试：自动化测试可以有效提高效率<br>jest<br>mocha<br>protractor<br>karma<br>enzyme<br>progressive web app：学习service worker和pwa<br>静态类型检查<br>type script<br>flow<br>服务器渲染<br>react<br>next.js<br>after.js<br>angular<br>universal<br>vuejs<br>nuxt.js<br>其他技术<br>canvas<br>HTML-5 APIs<br>SVG<br>source map<br>函数式编程<br>TC39<br>剩下的没有提及到的就继续探索吧。毕竟学无止境。比如<br>web GL<br>web component<br>web assembly</p>
+            <p><a href="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c" target="_blank" rel="noopener">https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c</a><br>来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。<br>把这篇文章简单的结构说一下：<br>基础知识：<br>HTML<br>HTML语法<br>拆分页面<br>CSS<br>CSS语法<br>Grid和Flexbox<br>媒体查询和响应式布局<br>JavaScript<br>JavaScript语法<br>操作DOM<br>作用域、闭包、变量提升<br>Ajax（XHR）<br>ES6特性<br>使用HTML/CSS/JavaScript写一个网站<br>为GitHub提PR<br>优化UI<br>解决issue<br>重构代码<br>包管理工具<br>npm<br>yarn<br>使用npm或者yarn模块<br>CSS预处理器：增强CSS的功能，比如支持变量、计算以及函数等<br>Sass<br>Postcss<br>Less<br>stylus<br>CSS框架<br>bootstrap<br>materialize CSS<br>bulma<br>CSS规范：大型前段项目的CSS会变得混乱，难以维护，需要使用规范<br>bem<br>oocss<br>smacss<br>suitcss<br>atomic<br>构建工具：包括代码校验、任务管理以及文件打包工具<br>代码校验<br>eslint<br>jslint<br>jshint<br>jscs<br>任务管理<br>npm script<br>gulp<br>grunt<br>文件打包<br>webpack<br>rollup<br>parcel<br>开发一个npm模块：到了这一步就完成了75%了！写一个npm模块，开源道GitHub上并且发布）<br>前端框架：任一选择一个，不要选angularJs1<br>react.js<br>redux<br>mobx<br>vuejs<br>vuex<br>angular<br>rx.js<br>type script<br>使用框架开发网站，学习如何进行性能优化<br>测试：自动化测试可以有效提高效率<br>jest<br>mocha<br>protractor<br>karma<br>enzyme<br>progressive web app：学习service worker和pwa<br>静态类型检查<br>type script<br>flow<br>服务器渲染<br>react<br>next.js<br>after.js<br>angular<br>universal<br>vuejs<br>nuxt.js<br>其他技术<br>canvas<br>HTML-5 APIs<br>SVG<br>source map<br>函数式编程<br>TC39<br>剩下的没有提及到的就继续探索吧。毕竟学无止境。比如<br>web GL<br>web component<br>web assembly</p>
 <p>可以看出，我们有很多的进步空间。国内的前端和国外的前端的注重点还是不同的，比如css预处理器、css规范这两个，好像我们国内的前端并不是很重视。<br>但是可以肯定的是，基础知识是很重要的，基础知识学了之后要注意巩固。<br>温故而知新。</p>
 
           

@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的  2、生成的最好是html的这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方法">
+<meta name="description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的2、生成的最好是html的   这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方">
 <meta name="keywords" content="刚需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSDoc——自动化文档工具">
 <meta property="og:url" content="http://yoursite.com/2018/09/13/JSDoc——自动化文档工具/index.html">
 <meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
-<meta property="og:description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的  2、生成的最好是html的这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方法">
+<meta property="og:description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的2、生成的最好是html的   这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-15T11:06:27.702Z">
+<meta property="og:updated_time" content="2019-10-16T10:14:01.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSDoc——自动化文档工具">
-<meta name="twitter:description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的  2、生成的最好是html的这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方法">
+<meta name="twitter:description" content="不管是写组件还是写接口，最后都要回归到文档。我们对于文档的需求：1、最好是自动生成的2、生成的最好是html的   这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具 这类工具中，推荐一个相对来说适合前端的——JSDocJSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方">
 
 
 
@@ -371,9 +371,10 @@
 
       
         <blockquote>
-<p>不管是写组件还是写接口，最后都要回归到文档。<br>我们对于文档的需求：<br>1、最好是自动生成的</p>
+<p>不管是写组件还是写接口，最后都要回归到文档。<br>我们对于文档的需求：<br>1、最好是自动生成的<br>2、生成的最好是html的</p>
 </blockquote>
-<h2 id="2、生成的最好是html的"><a href="#2、生成的最好是html的" class="headerlink" title="2、生成的最好是html的"></a>2、生成的最好是html的</h2><p>这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具</p>
+<hr>
+<p>这类需求，催生了一类工具的产生，这类工具的名字为——自动化文档工具</p>
 <p>这类工具中，推荐一个相对来说适合前端的——JSDoc<br>JSDoc是一个根据javascript文件中注释信息，生成JavaScript应用程序或库、模块的API文档 的工具。你可以使用他记录如：命名空间，类，方法，方法参数等。类似JavaDoc和PHPDoc。现在很多编辑器或IDE中还可以通过JSDoc直接或使用插件生成智能提示。从而使开发者很容易了解整个类和其中的属性和方法，并且快速知道如何使用，从而提高开发效率，降低维护成本。</p>
 <p>在node中使用<br>1、安装<br><code>npm install -g jsdoc</code><br>或者<br><code>npm install --save-dev jsdoc</code><br>2、编写函数说明<br>按照jsdoc规定的语法进行编写<br><a href="http://www.css88.com/doc/jsdoc/about-plugins.html" target="_blank" rel="noopener">http://www.css88.com/doc/jsdoc/about-plugins.html</a><br>所有的函数说明都写在这样的注释里/*<em> </em>/<br>举个栗子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">/** 这是一个测试的函数 */</span><br><span class="line">function test()&#123;&#125;</span><br><span class="line">再举一个栗子：</span><br><span class="line">/**</span><br><span class="line">*这是一个函数</span><br><span class="line">* @param a &#123;string&#125; a的解释</span><br><span class="line">* @returns &#123;string&#125; 对于返回值的解释</span><br><span class="line">*/</span><br><span class="line">function test(a)&#123;</span><br><span class="line">return a+&apos;hello&apos;;</span><br><span class="line">&#125;</span><br><span class="line">常用的语法：</span><br><span class="line">@param 记录传递给一个函数的参数</span><br><span class="line">@returns 记录一个函数的返回值</span><br><span class="line">@requires 这个文件需要一个JavaScript模块</span><br><span class="line">@function 描述一个函数或方法</span><br><span class="line">@exports 标识一个由JavaScript模块到处的成员</span><br><span class="line">@enum 描述一个相关属性的集合</span><br><span class="line">@example 提供一个如何使用描述项的例子</span><br><span class="line">@class 此函数旨在需要使用new关键字调用，即构造函数，也可以写@constructor</span><br><span class="line">@listen 列出一个标识的监听事件</span><br><span class="line">@property 记录一个对象的属性</span><br><span class="line">@see 更多详细信息请参阅其他一些文档</span><br><span class="line">@global 记录一个全局对象</span><br></pre></td></tr></table></figure></p>
 <p>3、生成<br>jsdoc 文件(路径)</p>
@@ -491,17 +492,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -554,22 +546,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2、生成的最好是html的"><span class="nav-number">1.</span> <span class="nav-text">2、生成的最好是html的</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
