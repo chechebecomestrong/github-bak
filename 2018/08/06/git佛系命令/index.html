@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
 <meta property="og:description" content="2018年8月6日Git一般的使用场景：一般是旧项目一般直接git clone修改完后再次上传的时候  配置文件也是之前写好的 然鹅……今天下午，面对一个新的项目，什么都没有……然后，git就变得很佛性 分享一个佛性的我面对佛性的git的心路历程：按部就班，git initgit add .git commit然后之后git push就可以了但是，失败了。发现，是因为没有master。没有mast">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T03:31:27.367Z">
+<meta property="og:updated_time" content="2019-10-15T11:03:54.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git佛系命令">
 <meta name="twitter:description" content="2018年8月6日Git一般的使用场景：一般是旧项目一般直接git clone修改完后再次上传的时候  配置文件也是之前写好的 然鹅……今天下午，面对一个新的项目，什么都没有……然后，git就变得很佛性 分享一个佛性的我面对佛性的git的心路历程：按部就班，git initgit add .git commit然后之后git push就可以了但是，失败了。发现，是因为没有master。没有mast">
@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  449
+                  453
                 </span>
               
 
@@ -369,11 +369,12 @@
       
 
       
-        <p>2018年8月6日<br>Git一般的使用场景：<br>一般是旧项目<br>一般直接git clone<br>修改完后再次上传的时候  配置文件也是之前写好的</p>
+        <p>2018年8月6日<br>Git一般的使用场景：<br>一般是旧项目<br>一般直接<code>git clone</code><br>修改完后再次上传的时候  配置文件也是之前写好的</p>
 <p>然鹅……<br>今天下午，面对一个新的项目，什么都没有……然后，git就变得很佛性</p>
-<p>分享一个佛性的我面对佛性的git的心路历程：<br>按部就班，<br>git init<br>git add .<br>git commit<br>然后之后git push就可以了<br>但是，失败了。<br>发现，是因为没有master。<br>没有master，什么都是0。<br>添加了master后，打了个分支，然后高高兴兴上传。<br>依旧失败。<br>查找原因，可能是本地分支没有关联远程分支的原因。<br>删除分支，重新创建分支。<br>上传成功！……但是发现：文件结构多了一层。<br>删除分支，重新上传。<br>上传成功！……但是发现：有node_modules和mac自带的文件<br>于是想起来要有一个gitignore文件。<br>写了个最简单的gitignore文件：<br>node_modules/<br>node_modules/*<br>.DS_Store<br>删掉分支，再次上传。<br>gitignore并没有发挥作用。<br>重写了gitignore但是没有用。<br>然后，考虑到git的缓存的问题。<br>于是<br>git status<br>真的是有缓存文件。<br>git clean出场<br>删除 untracked files<br>git clean -f</p>
-<p>连 untracked 的目录也一起删掉<br>git clean -fd</p>
-<p>连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）<br>git clean -xfd<br>以上这三条，没有起作用。<br>最后尝试，<br>git rm -r –cached .<br>这才终于把缓存清掉。<br>上传。成功！gitignore也发挥了作用。<br>git虽然几乎天天用，但是经常用于旧项目，在应对新项目时竟然出了这么多的幺蛾子、<br>基础是进步的基石，共勉！</p>
+<p>分享一个佛性的我面对佛性的git的心路历程：<br>按部就班，<br><code>git init</code><br><code>git add .</code><br><code>git commit</code><br>然后之后<code>git push</code>就可以了<br>但是，失败了。<br>发现，是因为没有master。<br>没有master，什么都是0。<br>添加了master后，打了个分支，然后高高兴兴上传。<br>依旧失败。<br>查找原因，可能是本地分支没有关联远程分支的原因。<br>删除分支，重新创建分支。<br>上传成功！……但是发现：文件结构多了一层。<br>删除分支，重新上传。<br>上传成功！……但是发现：有node_modules和mac自带的文件<br>于是想起来要有一个gitignore文件。<br>写了个最简单的gitignore文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_modules/</span><br><span class="line">node_modules/*</span><br><span class="line">.DS_Store</span><br></pre></td></tr></table></figure></p>
+<p>删掉分支，再次上传。<br>gitignore并没有发挥作用。<br>重写了gitignore但是没有用。<br>然后，考虑到git的缓存的问题。<br>于是<br><code>git status</code><br>真的是有缓存文件。<br><code>git clean</code>出场<br>删除 <code>untracked files</code><br><code>git clean -f</code></p>
+<p>连 untracked 的目录也一起删掉<br><code>git clean -fd</code></p>
+<p>连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）<br><code>git clean -xfd</code><br>以上这三条，没有起作用。<br>最后尝试，<br><code>git rm -r --cached .</code><br>这才终于把缓存清掉。<br>上传。成功！git ignore也发挥了作用。<br>git虽然几乎天天用，但是经常用于旧项目，在应对新项目时竟然出了这么多的幺蛾子、<br>基础是进步的基石，共勉！</p>
 
       
     </div>
@@ -555,7 +556,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-fish"></i>
   </span>

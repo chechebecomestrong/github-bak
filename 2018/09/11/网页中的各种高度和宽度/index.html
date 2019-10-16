@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="var h = &quot;&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;         h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot;">
+<meta name="description" content="`      var h = &quot;&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;     h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot; (包括边线和滚动条的宽)&quot;">
 <meta name="keywords" content="总有些东西记不住，记不住就收集起来放一起">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网页中的各种高度和宽度">
 <meta property="og:url" content="http://yoursite.com/2018/09/11/网页中的各种高度和宽度/index.html">
 <meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
-<meta property="og:description" content="var h = &quot;&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;         h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot;">
+<meta property="og:description" content="`      var h = &quot;&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;     h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot; (包括边线和滚动条的宽)&quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T03:26:20.711Z">
+<meta property="og:updated_time" content="2019-10-15T10:57:49.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网页中的各种高度和宽度">
-<meta name="twitter:description" content="var h = &quot;&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;         h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;         h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot;">
+<meta name="twitter:description" content="`      var h = &quot;&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.clientWidth + &quot;\n&quot;;     h += &quot; 网页可见区域高：&quot; + document.body.clientHeight + &quot;\n&quot;;     h += &quot; 网页可见区域宽：&quot; + document.body.offsetWidth + &quot; (包括边线和滚动条的宽)&quot;">
 
 
 
@@ -370,26 +370,27 @@
       
 
       
-        <script language="javascript">
-        var h = "";
-        h += " 网页可见区域宽：" + document.body.clientWidth + "\n";
-        h += " 网页可见区域高：" + document.body.clientHeight + "\n";
-        h += " 网页可见区域宽：" + document.body.offsetWidth + " (包括边线和滚动条的宽)" + "\n";
-        h += " 网页可见区域高：" + document.body.offsetHeight + " (包括边线的宽)" + "\n";
-        h += " 网页正文全文宽：" + document.body.scrollWidth + "\n";
-        h += " 网页正文全文高：" + document.body.scrollHeight + "\n";
-        h += " 网页被卷去的上：" + document.body.scrollTop + "\n";
-        h += " 网页被卷去的左：" + document.body.scrollLeft + "\n";
-        h += " 网页正文部分上：" + window.screenTop + "\n";
-        h += " 网页正文部分左：" + window.screenLeft + "\n";
-        h += " 屏幕分辨率的宽：" + window.screen.width + "\n";
-        h += " 屏幕分辨率的高：" + window.screen.height + "\n";
-        h += " 屏幕可用工作区宽度：" + window.screen.availWidth + "\n";
-        h += " 屏幕可用工作区高度：" + window.screen.availHeight + "\n";
-        h += " 你的屏幕设置是 " + window.screen.colorDepth + " 位彩色" + "\n";
-        h += " 你的屏幕设置 " + window.screen.deviceXDPI + " 像素/英寸" + "\n";
-        console(h);
-    </script>
+        <p><code>`</code></p>
+<script language="javascript">
+    var h = "";
+    h += " 网页可见区域宽：" + document.body.clientWidth + "\n";
+    h += " 网页可见区域高：" + document.body.clientHeight + "\n";
+    h += " 网页可见区域宽：" + document.body.offsetWidth + " (包括边线和滚动条的宽)" + "\n";
+    h += " 网页可见区域高：" + document.body.offsetHeight + " (包括边线的宽)" + "\n";
+    h += " 网页正文全文宽：" + document.body.scrollWidth + "\n";
+    h += " 网页正文全文高：" + document.body.scrollHeight + "\n";
+    h += " 网页被卷去的上：" + document.body.scrollTop + "\n";
+    h += " 网页被卷去的左：" + document.body.scrollLeft + "\n";
+    h += " 网页正文部分上：" + window.screenTop + "\n";
+    h += " 网页正文部分左：" + window.screenLeft + "\n";
+    h += " 屏幕分辨率的宽：" + window.screen.width + "\n";
+    h += " 屏幕分辨率的高：" + window.screen.height + "\n";
+    h += " 屏幕可用工作区宽度：" + window.screen.availWidth + "\n";
+    h += " 屏幕可用工作区高度：" + window.screen.availHeight + "\n";
+    h += " 你的屏幕设置是 " + window.screen.colorDepth + " 位彩色" + "\n";
+    h += " 你的屏幕设置 " + window.screen.deviceXDPI + " 像素/英寸" + "\n";
+    console(h);
+</script>
       
     </div>
     
@@ -576,7 +577,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-fish"></i>
   </span>

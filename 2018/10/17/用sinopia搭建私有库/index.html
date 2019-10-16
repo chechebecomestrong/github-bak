@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="2018年10月17日使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地">
+<meta name="description" content="使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地访问这个接口，可以用p">
 <meta name="keywords" content="npm私有库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用sinopia搭建私有库">
 <meta property="og:url" content="http://yoursite.com/2018/10/17/用sinopia搭建私有库/index.html">
 <meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
-<meta property="og:description" content="2018年10月17日使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地">
+<meta property="og:description" content="使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地访问这个接口，可以用p">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T03:51:30.099Z">
+<meta property="og:updated_time" content="2019-10-15T10:59:38.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用sinopia搭建私有库">
-<meta name="twitter:description" content="2018年10月17日使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地">
+<meta name="twitter:description" content="使用sinopia的优势：配置简单不需要数据库，sinopia内置有一个数据库了开启即用当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地1、服务器安装sinopiasudo npm install sinopia -g如上图所示即为安装完成运行  sinopia这个时候会出现两个warn一个是config一个是地址，是本地的地址，只能本地访问。本地访问这个接口，可以用p">
 
 
 
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  757
+                  792
                 </span>
               
 
@@ -370,47 +370,8 @@
       
 
       
-        <p>2018年10月17日<br>使用sinopia的优势：<br>配置简单<br>不需要数据库，sinopia内置有一个数据库了<br>开启即用<br>当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地<br>1、服务器安装sinopia<br>sudo npm install sinopia -g<br>如上图所示即为安装完成<br>运行  sinopia<br>这个时候会出现两个warn<br>一个是config<br>一个是地址，是本地的地址，只能本地访问。<br>本地访问这个接口，可以用ping的方式，显示是通的。<br>2、服务器配置sinopia</p>
-<pre><code># https://github.com/rlidwka/sinopia/tree/master/conf
-#
-# path to a directory with all packages
-storage: ./storage
-auth:
-htpasswd:
-file: ./htpasswd
-# Maximum amount of users allowed to register, defaults to &quot;+inf&quot;.
-# You can set this to -1 to disable registration.
-max_users: -1
-#改为-1，禁止注册
-# a list of other known repositories we can talk to
-uplinks:
-npmjs:
-url: https://registry.npm.taobao.org/
-packages:
-&apos;@*/*&apos;:
-# scoped packages
-access: $all
-publish: $authenticated
-&apos;*&apos;:
-# allow all users (including non-authenticated users) to read and
-# publish all packages
-#
-# you can specify usernames/groupnames (depending on your auth plugin)
-# and three keywords: &quot;$all&quot;, &quot;$anonymous&quot;, &quot;$authenticated&quot;
-access: $all
-# allow all known users to publish packages
-# (anyone can register by default, remember?)
-publish: $authenticated
-# if package is not available locally, proxy requests to &apos;npmjs&apos; registry
-proxy: npmjs
-# log settings
-logs:
-- {type: stdout, format: pretty, level: http}
-#- {type: file, path: sinopia.log, level: info}
-#sinopia源的地址是本机ip:4873
-#默认没有,只能在本机访问，添加后可以通过外网访问
-listen: 0.0.0.0:4873
-</code></pre><p>3、改变本地的npm源<br>推荐使用nrm来管理<br>（1）安装nrm<br>npm install nrm -g<br>(2)只需要输入 nrm<br>可以看到很多的命令提示<br>这个sinopia是安装在某个环境<br>所以在本地增加安装在某个的源：<br>nrm add sinopia http://你的地址:4873<br>nrm use sinopia<br>以上设置就可以用我们搭建好的私有npm了<br>安装完成之后，你通过npm install 安装的包，sinopia都会帮你缓存到本地。只要安装过，再次下载到本地会很快。<br>4、注册账号<br>确认自己的npm源在我们私有的库里。<br>npm adduser<br>按照提示，输入相关信息<br>这样就可以成为开发者了。<br>在注册的时候，很有可能注册不成功。可以用下面的方法来增加开发者。<br>用户名+密码-&gt;sha1<br>将上面的字符串写入和config.yml同目录下的htpasswd中，至此就可以增加用户了。<br>如果已经有账号，直接运行 npm login<br>5、上传自己的包<br>npm init<br>填写包信息<br>写完后，<br>运行 npm publish 发布新包<br>6、登录http://你的地址:4873<br>login→填写自己的用户名和密码，登录后就可以看当前的私有npm管理器中局域网内提交的包<br>7、install到本地<br>npm init<br>生成一个pakage.json<br>npm install<br>这样可以获取sinopia里所有的包的信息<br>如果要安装一个名字叫aa的包<br>那么可以运行下面的语句：<br>npm install aa<br>本地会生成一个node_module的文件夹，然后文件夹里会有aa的包<br>在项目中，需要用的这个包的时候，引用即可</p>
+        <p>使用sinopia的优势：<br>配置简单<br>不需要数据库，sinopia内置有一个数据库了<br>开启即用<br>当源为sinopia时，本地不存在要安装的包时，会自动去npm把包缓存到本地<br>1、服务器安装sinopia<br><code>sudo npm install sinopia -g</code><br>如上图所示即为安装完成<br>运行  sinopia<br>这个时候会出现两个warn<br>一个是config<br>一个是地址，是本地的地址，只能本地访问。<br>本地访问这个接口，可以用ping的方式，显示是通的。<br>2、服务器配置sinopia<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"># https://github.com/rlidwka/sinopia/tree/master/conf</span><br><span class="line">#</span><br><span class="line"># path to a directory with all packages</span><br><span class="line">storage: ./storage</span><br><span class="line">auth:</span><br><span class="line">htpasswd:</span><br><span class="line">file: ./htpasswd</span><br><span class="line"># Maximum amount of users allowed to register, defaults to &quot;+inf&quot;.</span><br><span class="line"># You can set this to -1 to disable registration.</span><br><span class="line">max_users: -1</span><br><span class="line">#改为-1，禁止注册</span><br><span class="line"># a list of other known repositories we can talk to</span><br><span class="line">uplinks:</span><br><span class="line">npmjs:</span><br><span class="line">url: https://registry.npm.taobao.org/</span><br><span class="line">packages:</span><br><span class="line">&apos;@*/*&apos;:</span><br><span class="line"># scoped packages</span><br><span class="line">access: $all</span><br><span class="line">publish: $authenticated</span><br><span class="line">&apos;*&apos;:</span><br><span class="line"># allow all users (including non-authenticated users) to read and</span><br><span class="line"># publish all packages</span><br><span class="line">#</span><br><span class="line"># you can specify usernames/groupnames (depending on your auth plugin)</span><br><span class="line"># and three keywords: &quot;$all&quot;, &quot;$anonymous&quot;, &quot;$authenticated&quot;</span><br><span class="line">access: $all</span><br><span class="line"># allow all known users to publish packages</span><br><span class="line"># (anyone can register by default, remember?)</span><br><span class="line">publish: $authenticated</span><br><span class="line"># if package is not available locally, proxy requests to &apos;npmjs&apos; registry</span><br><span class="line">proxy: npmjs</span><br><span class="line"># log settings</span><br><span class="line">logs:</span><br><span class="line">- &#123;type: stdout, format: pretty, level: http&#125;</span><br><span class="line">#- &#123;type: file, path: sinopia.log, level: info&#125;</span><br><span class="line">#sinopia源的地址是本机ip:4873</span><br><span class="line">#默认没有,只能在本机访问，添加后可以通过外网访问</span><br><span class="line">listen: 0.0.0.0:4873</span><br></pre></td></tr></table></figure></p>
+<p>3、改变本地的npm源<br>推荐使用nrm来管理<br>（1）安装nrm<br><code>npm install nrm -g</code><br>(2)只需要输入 nrm<br>可以看到很多的命令提示<br>这个sinopia是安装在某个环境<br>所以在本地增加安装在某个的源：<br><code>nrm add sinopia http://你的地址:4873</code><br><code>nrm use sinopia</code><br>以上设置就可以用我们搭建好的私有npm了<br>安装完成之后，你通过npm install 安装的包，sinopia都会帮你缓存到本地。只要安装过，再次下载到本地会很快。<br>4、注册账号<br>确认自己的npm源在我们私有的库里。<br><code>npm adduser</code><br>按照提示，输入相关信息<br>这样就可以成为开发者了。<br>在注册的时候，很有可能注册不成功。可以用下面的方法来增加开发者。<br>用户名+密码-&gt;sha1<br>将上面的字符串写入和config.yml同目录下的htpasswd中，至此就可以增加用户了。<br>如果已经有账号，直接运行 npm login<br>5、上传自己的包<br><code>npm init</code><br>填写包信息<br>写完后，<br>运行 <code>npm publish</code> 发布新包<br>6、登录http://你的地址:4873<br>login→填写自己的用户名和密码，登录后就可以看当前的私有npm管理器中局域网内提交的包<br>7、install到本地<br><code>npm init</code><br>生成一个<code>pakage.json</code><br><code>npm install</code><br>这样可以获取sinopia里所有的包的信息<br>如果要安装一个名字叫<code>aa</code>的包<br>那么可以运行下面的语句：<br><code>npm install aa</code><br>本地会生成一个<code>node_module</code>的文件夹，然后文件夹里会有aa的包<br>在项目中，需要用的这个包的时候，引用即可</p>
 
       
     </div>
@@ -598,7 +559,7 @@ listen: 0.0.0.0:4873
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-fish"></i>
   </span>

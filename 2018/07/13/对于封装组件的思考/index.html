@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="从菜鸟到小白的进阶之路|cheche的个人博客">
 <meta property="og:description" content="随着写的代码量不断的增加，慢慢就接触了封装这个概念。从一开始的写前后端交互，当时是web的上机课：用的是现在已经很少用的jsp。做的是一个简单的网上商城，用Struts2框架。（现在想来，貌似了解框架比封装的概念要早很多）当是是学了用orm来映射数据库后，顺理成章的也写进了框架里。老师给我们定了3个任务。1、查询所有的用户2、查询所有的书并且进行分页3、查询某位用户买了什么书，并且分页老师说能做出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T03:24:10.211Z">
+<meta property="og:updated_time" content="2019-10-15T10:56:44.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对于封装组件的思考">
 <meta name="twitter:description" content="随着写的代码量不断的增加，慢慢就接触了封装这个概念。从一开始的写前后端交互，当时是web的上机课：用的是现在已经很少用的jsp。做的是一个简单的网上商城，用Struts2框架。（现在想来，貌似了解框架比封装的概念要早很多）当是是学了用orm来映射数据库后，顺理成章的也写进了框架里。老师给我们定了3个任务。1、查询所有的用户2、查询所有的书并且进行分页3、查询某位用户买了什么书，并且分页老师说能做出">
@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  676
+                  682
                 </span>
               
 
@@ -373,8 +373,8 @@
         <p>随着写的代码量不断的增加，慢慢就接触了封装这个概念。<br>从一开始的写前后端交互，<br>当时是web的上机课：<br>用的是现在已经很少用的jsp。<br>做的是一个简单的网上商城，用Struts2框架。<br>（现在想来，貌似了解框架比封装的概念要早很多）<br>当是是学了用orm来映射数据库后，顺理成章的也写进了框架里。<br>老师给我们定了3个任务。<br>1、查询所有的用户<br>2、查询所有的书并且进行分页<br>3、查询某位用户买了什么书，并且分页<br>老师说能做出前两个的，上机课就给优秀，三个都做出来的是满分。<br>那肯定每个人都是奔着满分去的。<br>拿到题目后我就开始分析：</p>
 <p>第一个就是简单的再Struts2框架里，使用orm关系映射数据库取值。<br>第二个是在第一个的基础上，加上分页。在那个数据库刚开始会用，sql语句刚熟练的时代，做个分页就觉得很有技术含量了。<br>第三个比第二个还要难，难在sql语句。要做条件查询。</p>
 <p>乍一看，需要写3个方法啊。<br>但是稍微的写一下这三个方法的时候，就发现，结构很一样。<br>结构一样，只是传的参数不一样。<br>所以貌似可以写到一个函数里。然后根据传入参数的不同，用不一样的sql，从而取到对应的值。<br>虽然当时还不知道封装这个词，但是我有这样一种想法：<br>把这3个写到一个里面，然后哪里用到了就去调用，外加传参。</p>
-<p>当时在写这个函数的时候，写的很简单，类似于以下这种结构：</p>
-<p>function fun(num,userid){<br>  数组a，里面装了三条sql；<br>sql=a[num];<br>只有在第三条sql语句里，才用得着userid；<br>sql语句确定了之后，就可以向后端请求数据了。<br>}<br>写完后还觉得心里美滋滋，觉得是个很巧妙的想法。</p>
+<p>当时在写这个函数的时候，写的很简单，类似于以下这种结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun(num,userid)&#123;</span><br><span class="line">  数组a，里面装了三条sql；</span><br><span class="line">sql=a[num];</span><br><span class="line">只有在第三条sql语句里，才用得着userid；</span><br><span class="line">sql语句确定了之后，就可以向后端请求数据了。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>写完后还觉得心里美滋滋，觉得是个很巧妙的想法。</p>
 <p>随着后面在学校里还有其他的上机课，<br>这个函自己又重新写了，让这个函数脱离了那个最原始的情景。可以适配其他的情景。</p>
 <p>这可能是我写web端以来第一次那么有意识的去对一个函数做封装。<br>这个阶段暂且叫做封装思想的萌芽吧。</p>
 <p>有了一点点理解我就暂且叫做虾米阶段吧。</p>
@@ -566,7 +566,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-fish"></i>
   </span>
