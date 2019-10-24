@@ -271,6 +271,395 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从0学习TypeScript/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yully">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|Yully's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/从0学习TypeScript/" itemprop="url">从0学习TypeScript</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T19:35:05+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/24/从0学习TypeScript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/24/从0学习TypeScript/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/24/从0学习TypeScript/" class="leancloud_visitors" data-flag-title="从0学习TypeScript">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,832
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="任何事物的出现都有其必然性和偶然性，存在即合理。"><a href="#任何事物的出现都有其必然性和偶然性，存在即合理。" class="headerlink" title="任何事物的出现都有其必然性和偶然性，存在即合理。"></a>任何事物的出现都有其必然性和偶然性，存在即合理。</h5><blockquote>
+<p>官方文档建议的学习阶梯</p>
+</blockquote>
+<h4 id="一、TypeScript的五分钟入门"><a href="#一、TypeScript的五分钟入门" class="headerlink" title="一、TypeScript的五分钟入门"></a>一、TypeScript的五分钟入门</h4><p>首先，进行安装。官方介绍了两种安装方式。</p>
+<ol>
+<li>通过npm</li>
+<li>通过安装插件</li>
+</ol>
+<p>作为一个经常使用npm的人，我选择了第一种安装方式。<br><code>npm install -g typescript</code><br>安装完成之后，就可以开始编写了。如果使用ts语法，那么所有的文件后缀名都是 <strong>.ts</strong>。<br>第一个函数，打招呼<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greeter(person: string) &#123;</span><br><span class="line">    return &apos;hello,&apos; + person;</span><br><span class="line">&#125;</span><br><span class="line">let user = &apos;che&apos;;</span><br><span class="line">document.body.textContent = greeter(user)</span><br></pre></td></tr></table></figure></p>
+<p>写成之后，需要编译<br><code>tsc greeter.ts</code><br>就会得到一个greeter.js，然后就可以运行在我们的项目中了。<br>在函数中，有一个 <strong>: string</strong> 和之前的js有些不同，这就是对函数中，传入的变量类型的声明。</p>
+<h5 id="类型声明"><a href="#类型声明" class="headerlink" title="类型声明"></a>类型声明</h5><p>如果在声明了变量的类型之后，在调用函数时，传入其他类型的变量，则会报变量类型的错误。这也就在一定程度上规范了函数调用时，传入变量的类型。但是虽然会报错，但是greeter.js依然被创建成功了，而且也能显示错误的自变量。所以，如果在ts中有任何的报错，依然是可以使用的。就像在这个事例中，ts报错了但是，代码并没有因为这个报错而不运行，代码依然按照用户期望的的结果运行。</p>
+<h5 id="接口（interface）"><a href="#接口（interface）" class="headerlink" title="接口（interface）"></a>接口（interface）</h5><p>ts中可以用interface来描述对象的属性，在ts中，如果两个类型的内部结构是兼容，那这两个类型就是兼容的。这就允许我们通过接口所需要的结构来实现接口，不需要显示的写implement语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    firstName: string;</span><br><span class="line">    lastName: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greeter(person: Person) &#123;</span><br><span class="line">    return &quot;Hello, &quot; + person.firstName + &quot; &quot; + person.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let user = &#123; firstName: &quot;Yully&quot;, lastName: &quot;che&quot; &#125;;</span><br><span class="line"></span><br><span class="line">document.body.textContent = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<h5 id="类（class）"><a href="#类（class）" class="headerlink" title="类（class）"></a>类（class）</h5><p>ts支持js的新属性，例如支持面向对象基于类的编程。<br>创建一个学生类，包括这个类的构造函数和一些公共属性。可以注意到，类和接口可以很好的配合使用，使程序员更好的确定需要抽象的级别。<br>还需要注意的是，对public构造函数使用on参数是一种简写的方式，可以自动创建具有该名称的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Student &#123;</span><br><span class="line">    fullName: string;</span><br><span class="line">    constructor(public firstName: string, public middleInitial: string, public lastName: string) &#123;</span><br><span class="line">        this.fullName = firstName + &quot; &quot; + middleInitial + &quot; &quot; + lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Person &#123;</span><br><span class="line">    firstName: string;</span><br><span class="line">    lastName: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greeter(person: Person) &#123;</span><br><span class="line">    return &quot;Hello, &quot; + person.firstName + &quot; &quot; + person.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let user = new Student(&quot;first&quot;, &quot;middle&quot;, &quot;last&quot;);</span><br><span class="line"></span><br><span class="line">document.body.textContent = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<p>运行greeter.ts这个文件，生成的js文件和之前看到的代码是一样的。ts中的类是js中经常使用的基于原型OO的简写。</p>
+<h5 id="在项目中运行ts"><a href="#在项目中运行ts" class="headerlink" title="在项目中运行ts"></a>在项目中运行ts</h5><p>在greeter.html中可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;&lt;title&gt;TypeScript Greeter&lt;/title&gt;&lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;script src=&quot;greeter.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="二、ts手册"><a href="#二、ts手册" class="headerlink" title="二、ts手册"></a>二、ts手册</h4><h5 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h5><p>在编程中，需要使用一些最简单的数据单元：数字、字符串、结构、布尔值等等。在ts中，有和js差不多的基本类型，和更方便的枚举类型。<br><strong>布尔值</strong><br>最基础的数据类型，只有简单的两个值：true和false。在js和ts中，都叫做布尔值。<br><code>let isDone: boolean = false;</code><br><strong>数值</strong><br>js中和ts中的数都是浮点数。这些浮点数的类型叫“number”，除了十六进制和十进制，ts还支持es2015引入的二进制和八进制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let decimal: number = 6;</span><br><span class="line">let hex: number = 0xf00d;</span><br><span class="line">let binary: number = 0b1010;</span><br><span class="line">let octal: number = 0o744;</span><br></pre></td></tr></table></figure></p>
+<p><strong>字符串</strong><br>字符串是不论由js写成的网页还是服务器端运行的程序的另一个基本部分。和其他的语言一样，我们用string来表示字符串。和js一样，ts也是用单引号或者双引号来包住字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let color: string = &quot;blue&quot;;</span><br><span class="line">color = &apos;red&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>当然还可以使用模版字符串，可以跨越多行并具有嵌入式表达式这些字符串用反引号包住，并且嵌入式的表达形式为<code>${expr}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let fullName: string = `Yully CC`;</span><br><span class="line">let age: number = 24;</span><br><span class="line">let sentence: string = `Hello, my name is $&#123; fullName &#125;.</span><br><span class="line"></span><br><span class="line">I&apos;ll be $&#123; age + 1 &#125; years old next month.`;</span><br></pre></td></tr></table></figure></p>
+<p>这样等效于以下声明句子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sentence: string = &quot;Hello, my name is &quot; + fullName + &quot;.\n\n&quot; +</span><br><span class="line">    &quot;I&apos;ll be &quot; + (age + 1) + &quot; years old next month.&quot;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>数组</strong><br>ts和js一样，允许程序员用数组来编写。数组类型可以用一下两种方式来编写：</p>
+<ol>
+<li>使用的元素的类型后跟[]表示该元素类型的数组<br><code>let list: number[] = [1, 2, 3];</code></li>
+<li>使用通用数组类型<code>Array&lt;elemType&gt;</code><br><code>let list: Array&lt;number&gt; = [1, 2, 3];</code></li>
+</ol>
+<p><strong>元组</strong><br>元组类型允许开发者用有限的已知类型的元素来表示数组，类型不用一致。例如可以用一个字符串和一个数字来表示一个值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Declare a tuple type</span><br><span class="line">let x: [string, number];</span><br><span class="line">// Initialize it</span><br><span class="line">x = [&quot;hello&quot;, 10]; // OK</span><br><span class="line">// Initialize it incorrectly</span><br><span class="line">x = [10, &quot;hello&quot;]; // Error</span><br></pre></td></tr></table></figure></p>
+<p>当访问具有已知索引的元素时，将检索正确的类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(x[0].substring(1)); // OK</span><br><span class="line">console.log(x[1].substring(1)); // Error, &apos;number&apos; does not have &apos;substring&apos;</span><br></pre></td></tr></table></figure></p>
+<p>当访问一组已知索引之外的元素失败，并显示一下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x[3] = &quot;world&quot;; // Error, Property &apos;3&apos; does not exist on type &apos;[string, number]&apos;.</span><br><span class="line"></span><br><span class="line">console.log(x[5].toString()); // Error, Property &apos;5&apos; does not exist on type &apos;[string, number]&apos;.</span><br></pre></td></tr></table></figure></p>
+<p><strong>枚举</strong><br>js对标准数据类型一个补充，是一种友好的给数字赋予名字的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>通常情况下，枚举类型第一个是从0开始的，可以手动的设置枚举类型的值。例如，可以设置开始的元素不是0而是1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>以下代码可以实现设置最开始的元素是1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>当然也可以手动对枚举类型中的所有值赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green = 2, Blue = 4&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>使用枚举类型的一个比较方便的地方在于可以在枚举类型中，完成从数值到具体值得转变。比如有一堆值，不确定2在Color上的映射的值，我们可以查找对应的名称：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green, Blue&#125;</span><br><span class="line">let colorName: string = Color[2];</span><br><span class="line"></span><br><span class="line">console.log(colorName); // Displays &apos;Green&apos; as its value is 2 above</span><br></pre></td></tr></table></figure></p>
+<p><strong>任意值（Any）</strong><br>在编写程序的时候我们需要去描述一些我们不知道的类型。这些值可能是变化的内容，来自用户或者第三方库。在这些情况下，希望不去检查值得类型，并且让这些值通过编译检查，这个时候需要用any来标记这些值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let notSure: any = 4;</span><br><span class="line">notSure = &quot;maybe a string instead&quot;;</span><br><span class="line">notSure = false; // okay, definitely a boolean</span><br></pre></td></tr></table></figure></p>
+<p>任意值类型是一个很有效的方法，尤其是用现有的js的开发者，可以逐步的在编译的时候选择加入或者去掉类型检查。你可能期望用对象来扮演一个差不多的角色，在其他的语言里的确可以做到这一点。然而，对象类型只允许复制操作，不能调用任意方法，即使是已经存在的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let notSure: any = 4;</span><br><span class="line">notSure.ifItExists(); // okay, ifItExists might exist at runtime</span><br><span class="line">notSure.toFixed(); // okay, toFixed exists (but the compiler doesn&apos;t check)</span><br><span class="line"></span><br><span class="line">let prettySure: Object = 4;</span><br><span class="line">prettySure.toFixed(); // Error: Property &apos;toFixed&apos; doesn&apos;t exist on type &apos;Object&apos;.</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：要避免使用Object类型，非原始的对象类型。</p>
+</blockquote>
+<p>any类型也支持只知道部分的数据时的表示。<br>比如有一个数组，但是数组里有不同的类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let list: any[] = [1, true, &quot;free&quot;];</span><br><span class="line"></span><br><span class="line">list[1] = 100;</span><br></pre></td></tr></table></figure></p>
+<p><strong>空</strong><br>和any相反：根本没有任何的类型。通常是把这个视为不返回值得函数的返回类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function warnUser(): void &#123;</span><br><span class="line">    console.log(&quot;This is my warning message&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上的写法，对于声明的void类型没有起作用，因为只能分配null或undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let unusable: void = undefined;</span><br><span class="line">unusable = null; // OK if `--strictNullChecks` is not given</span><br></pre></td></tr></table></figure></p>
+<p><strong>Null和Undefined</strong><br>在ts里，undefined和null通常有他们的类型名：undefined和null。很像void，单纯用他们本身，是没用的，一般用于对返回值的处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Not much else we can assign to these variables!</span><br><span class="line">let u: undefined = undefined;</span><br><span class="line">let n: null = null;</span><br></pre></td></tr></table></figure></p>
+<p>一般情况下，null和undefined是其他类型的子类型。这意味着可以给其他的类型比如数值类型的变量赋null或者undefined。<br>然而，当用–strictNullChecks这个标志的时候，null和undefined就只能赋值给any和各自的类型（除了undefined也可以分配给void）。这有助于避免许多常见的错误，如果要传递一个值或者是字符串、或者是null或者是undefined的时候，可以用联合类型，string|null|undefined。<br>联合类型是一个进阶的话题，这里不继续学习。<br>注意：ts官方是鼓励可能的话，使用<code>--strictNullChecks</code>标志。<br><strong>永远不存在（Never）</strong><br>never类型永远不存在的类型。比如never可以作为抛出异常或永不返回的异常的函数表达式或箭头函数表达式的返回类型。<br>never类型是子类型，可以分配给每一种类型。但是么有类型是never（never本身除外）的子类型可以分配给它的子类型。甚至any也不能分配给never。<br>函数返回never的实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Function returning never must have unreachable end point</span><br><span class="line">function error(message: string): never &#123;</span><br><span class="line">    throw new Error(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Inferred return type is never</span><br><span class="line">function fail() &#123;</span><br><span class="line">    return error(&quot;Something failed&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Function returning never must have unreachable end point</span><br><span class="line">function infiniteLoop(): never &#123;</span><br><span class="line">    while (true) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>对象</strong><br>object表示非原始型的对象类型，不是number、string、boolean、symbol、null或undefined。<br>通过object类型，接口可以用Object.create表示。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">declare function create(o: object | null): void;</span><br><span class="line"></span><br><span class="line">create(&#123; prop: 0 &#125;); // OK</span><br><span class="line">create(null); // OK</span><br><span class="line"></span><br><span class="line">create(42); // Error</span><br><span class="line">create(&quot;string&quot;); // Error</span><br><span class="line">create(false); // Error</span><br><span class="line">create(undefined); // Error</span><br></pre></td></tr></table></figure></p>
+<p><strong>类型断言</strong><br>有时候，开发者比ts更了解值得情况。所以，知道某个对象的类型可能比当前的类型更具体的时候，可以使用类型断言。<br>类型断言是一种告诉编译器“相信我，我知道我在干嘛”的方法。类型断言就像其他语言中的类型转换一样，但是不执行任何特殊的数据检查或重组。对运行时间没有影响，仅影响编译器。ts假定开发者已经执行了所需要的任何特殊检查。<br>类型断言有两种形式：<br>一种是“尖括号”语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let someValue: any = &quot;this is a string&quot;;</span><br><span class="line"></span><br><span class="line">let strLength: number = (&lt;string&gt;someValue).length;</span><br></pre></td></tr></table></figure></p>
+<p>另一个是as<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let someValue: any = &quot;this is a string&quot;;</span><br><span class="line"></span><br><span class="line">let strLength: number = (someValue as string).length;</span><br></pre></td></tr></table></figure></p>
+<p>这两种方法是一样，第一种比第二种用的更广泛，但是当jsx和ts一起用的时候，只能用as的这种写法。<br><strong>关于let的建议</strong><br>到目前，一直在使用let关键词，而不是var。因为let这个关键字已经被认为是标准，比var更安全。应该多用let，至于var尽量不要用。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/02/从0学习react/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yully">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|Yully's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/02/从0学习react/" itemprop="url">从0学习react</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-02T16:32:11+08:00">
+                2019-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/02/从0学习react/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/02/从0学习react/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/02/从0学习react/" class="leancloud_visitors" data-flag-title="从0学习react">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>占坑写react</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/18/verdaccio——新的代码仓库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1649,360 +2038,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/2018年前端工程师的成长路线/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yully">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="从菜鸟到小白的进阶之路|Yully's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/07/2018年前端工程师的成长路线/" itemprop="url">2018年前端工程师的成长路线</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-07T21:34:07+08:00">
-                2018-09-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/07/2018年前端工程师的成长路线/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/07/2018年前端工程师的成长路线/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/09/07/2018年前端工程师的成长路线/" class="leancloud_visitors" data-flag-title="2018年前端工程师的成长路线">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  556
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c" target="_blank" rel="noopener">https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c</a><br>来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。<br>把这篇文章简单的结构说一下：<br>基础知识：<br>HTML<br>HTML语法<br>拆分页面<br>CSS<br>CSS语法<br>Grid和Flexbox<br>媒体查询和响应式布局<br>JavaScript<br>JavaScript语法<br>操作DOM<br>作用域、闭包、变量提升<br>Ajax（XHR）<br>ES6特性<br>使用HTML/CSS/JavaScript写一个网站<br>为GitHub提PR<br>优化UI<br>解决issue<br>重构代码<br>包管理工具<br>npm<br>yarn<br>使用npm或者yarn模块<br>CSS预处理器：增强CSS的功能，比如支持变量、计算以及函数等<br>Sass<br>Postcss<br>Less<br>stylus<br>CSS框架<br>bootstrap<br>materialize CSS<br>bulma<br>CSS规范：大型前段项目的CSS会变得混乱，难以维护，需要使用规范<br>bem<br>oocss<br>smacss<br>suitcss<br>atomic<br>构建工具：包括代码校验、任务管理以及文件打包工具<br>代码校验<br>eslint<br>jslint<br>jshint<br>jscs<br>任务管理<br>npm script<br>gulp<br>grunt<br>文件打包<br>webpack<br>rollup<br>parcel<br>开发一个npm模块：到了这一步就完成了75%了！写一个npm模块，开源道GitHub上并且发布）<br>前端框架：任一选择一个，不要选angularJs1<br>react.js<br>redux<br>mobx<br>vuejs<br>vuex<br>angular<br>rx.js<br>type script<br>使用框架开发网站，学习如何进行性能优化<br>测试：自动化测试可以有效提高效率<br>jest<br>mocha<br>protractor<br>karma<br>enzyme<br>progressive web app：学习service worker和pwa<br>静态类型检查<br>type script<br>flow<br>服务器渲染<br>react<br>next.js<br>after.js<br>angular<br>universal<br>vuejs<br>nuxt.js<br>其他技术<br>canvas<br>HTML-5 APIs<br>SVG<br>source map<br>函数式编程<br>TC39<br>剩下的没有提及到的就继续探索吧。毕竟学无止境。比如<br>web GL<br>web component<br>web assembly</p>
-<p>可以看出，我们有很多的进步空间。国内的前端和国外的前端的注重点还是不同的，比如css预处理器、css规范这两个，好像我们国内的前端并不是很重视。<br>但是可以肯定的是，基础知识是很重要的，基础知识学了之后要注意巩固。<br>温故而知新。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/ui自动化测试探索——ui-recorder/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yully">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="从菜鸟到小白的进阶之路|Yully's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/ui自动化测试探索——ui-recorder/" itemprop="url">ui自动化测试探索——ui recorder</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T20:33:09+08:00">
-                2018-09-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/09/04/ui自动化测试探索——ui-recorder/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/04/ui自动化测试探索——ui-recorder/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2018/09/04/ui自动化测试探索——ui-recorder/" class="leancloud_visitors" data-flag-title="ui自动化测试探索——ui recorder">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,209
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在写npm包相关的内容。<br>在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。<br>于是，想了下能不能对UI进行自动化测试？<br>答案是肯定的。<br>首当其冲的，则是UI Recorder。<br>是阿里巴巴的开源项目。<br>官方的介绍十分的高大上：</p>
-<blockquote>
-<p>UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.<br>UI Recorder 要比Selenium IDE更加强大!<br>UI Recorder 非常简单易用.</p>
-</blockquote>
-<p>官方网站: <a href="http://uirecorder.com/" target="_blank" rel="noopener">http://uirecorder.com/</a><br>语言切换: English, 中文<br>变更日志: CHANGE<br>视频教程：PC中文教程<br>功能<br>支持所有用户行为: 键盘事件, 鼠标事件, alert, 文件上传, 拖放, svg, shadow dom<br>支持无线native app(Android, iOS)录制, 基于macaca实现: <a href="https://macacajs.com/" target="_blank" rel="noopener">https://macacajs.com/</a><br>无干扰录制: 和正常测试无任何区别，无需任何交互<br>录制用例存储在本地<br>支持丰富的断言类型: val,text,displayed,enabled,selected,attr,css,url,title,cookie,localStorage,sessionStorage<br>支持图片对比<br>支持强大的变量字符串<br>支持公共测试用例: 允许用例中动态调用另外一个<br>支持并发测试<br>支持多国语言: 英文, 简体中文, 繁体中文<br>支持单步截图<br>支持HTML报告和JUnit报告<br>全系统支持: Windows, Mac, Linux<br>基于Nodejs的测试用例: jWebDriver<br>因为node操作起来相对较为简便。所以选择用node来探索。<br>工欲善其事必先利其器<br>1、安装<br>首先安装node 安装Chrome 安装ui recorder、mocha<br>安装完之后，需要对环境进行补充，需要另外安装Java sdk，jwedriver<br>在把环境都安装好之后，就可以进行测试了。<br>2、测试步骤<br>首先，新建一个文件夹。<br>然后进入测试环节：<br>（1）uirdcorder init 配置好之后在用ui recorder的环境  会生成一些配置文件<br>（2）生成的json文件中，可以修改config.json使配置更加符合自己的情况，而且也可以修改在init的时候配置错误的选项。<br>（3）修改好配置文件后，就可以开始录制测试用例了。<br>指令为 uirecorder start  测试用例名<br>测试用例名以.spec.js结尾<br>然后会有一些关于录制时的配置需要进一步的确定。都确认之后，终端会成为所谓的录制服务器，内部的驱动会拉起系统的浏览器。<br>这个时候会拉起两个浏览器，一个是录制浏览器，一个是检验浏览器，所有的录制动作都是在录制浏览器进行的，检验浏览器会重复录制浏览器的动作，然后在录制服务器中显示测试结果。<br>录制浏览器会有一个输入框，即输入要测试的内容，这里可以是一个url，也可以是一个脚本。点击开始录制即真正了进入了测试过程。<br>录制界面会有一排按钮框，悬浮可移动。<br>有添加悬停、添加断言、使用变量、脚本跳转、结束录制等功能。<br>在经过一些列的测试之后，可以结束录制。这个时候在录制中的所有的操作都以代码的形式出现在刚刚的.spec.js文件中。<br>所以，这个文件可以用来回看。回看需要mocha。<br>mocha 测试用例名<br>这样就可以回看刚刚的录制。<br>然后在终端，会出现各种测试动作的结果。<br>有mocha的加入，就有了可以文本化测试结果的可能。<br>source run.sh 测试用例名<br>这个时候除了会回放录制的动作，回放完后会生成一份测试报告<br>测试报告中除了一般的单元测试测试报告中显示的各项数据外，还有录制动作的截图。<br>可以实时、带代码块、带测试结果的了解整个测试过程。<br>金无足赤人无完人。<br>软件也都不是完美的：<br>这款测试框架：<br>只适用于一般的dom操作，以及一般的dom写的ui。<br>不适合我们公司的ui框架。因为我们公司的ui框架写的很精细，正常的写法测不出来。<br>如果硬写也能写出来，但是到时候测试的代码可能比开发代码还多。这样就会导致测试的成本过高。<br>因此，这个ui测试，以后可以在表格、一般的dom操作中使用。不适合用来测试本公司前端的ui框架。<br>所以，这个ui测试框架，不再做进一不的探究。需要的时候，用其基本的写法即可。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2050,7 +2090,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2063,7 +2103,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

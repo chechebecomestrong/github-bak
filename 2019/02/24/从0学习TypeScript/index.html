@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon32*32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon32*32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon16*16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="入门学习,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="任何事物的出现都有其必然性和偶然性，存在即合理。 官方文档建议的学习阶梯  一、TypeScript的五分钟入门首先，进行安装。官方介绍了两种安装方式。  通过npm 通过安装插件  作为一个经常使用npm的人，我选择了第一种安装方式。npm install -g typescript安装完成之后，就可以开始编写了。如果使用ts语法，那么所有的文件后缀名都是 .ts。第一个函数，打招呼12345f">
+<meta name="keywords" content="入门学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0学习TypeScript">
+<meta property="og:url" content="http://yoursite.com/2019/02/24/从0学习TypeScript/index.html">
+<meta property="og:site_name" content="从菜鸟到小白的进阶之路|Yully&#39;s Blog">
+<meta property="og:description" content="任何事物的出现都有其必然性和偶然性，存在即合理。 官方文档建议的学习阶梯  一、TypeScript的五分钟入门首先，进行安装。官方介绍了两种安装方式。  通过npm 通过安装插件  作为一个经常使用npm的人，我选择了第一种安装方式。npm install -g typescript安装完成之后，就可以开始编写了。如果使用ts语法，那么所有的文件后缀名都是 .ts。第一个函数，打招呼12345f">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-24T11:29:34.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从0学习TypeScript">
+<meta name="twitter:description" content="任何事物的出现都有其必然性和偶然性，存在即合理。 官方文档建议的学习阶梯  一、TypeScript的五分钟入门首先，进行安装。官方介绍了两种安装方式。  通过npm 通过安装插件  作为一个经常使用npm的人，我选择了第一种安装方式。npm install -g typescript安装完成之后，就可以开始编写了。如果使用ts语法，那么所有的文件后缀名都是 .ts。第一个函数，打招呼12345f">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/24/从0学习TypeScript/">
+
+
+
+
+
+  <title>从0学习TypeScript | 从菜鸟到小白的进阶之路|Yully's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?968bcbee419f699af990fa7f6dc6b536";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+    </div>
+<a href="https://github.com/chechebecomestrong"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">从菜鸟到小白的进阶之路|Yully's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">可能会有干货</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/从0学习TypeScript/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yully">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="从菜鸟到小白的进阶之路|Yully's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从0学习TypeScript</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T19:35:05+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/24/从0学习TypeScript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/02/24/从0学习TypeScript/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/02/24/从0学习TypeScript/" class="leancloud_visitors" data-flag-title="从0学习TypeScript">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,832
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="任何事物的出现都有其必然性和偶然性，存在即合理。"><a href="#任何事物的出现都有其必然性和偶然性，存在即合理。" class="headerlink" title="任何事物的出现都有其必然性和偶然性，存在即合理。"></a>任何事物的出现都有其必然性和偶然性，存在即合理。</h5><blockquote>
+<p>官方文档建议的学习阶梯</p>
+</blockquote>
+<h4 id="一、TypeScript的五分钟入门"><a href="#一、TypeScript的五分钟入门" class="headerlink" title="一、TypeScript的五分钟入门"></a>一、TypeScript的五分钟入门</h4><p>首先，进行安装。官方介绍了两种安装方式。</p>
+<ol>
+<li>通过npm</li>
+<li>通过安装插件</li>
+</ol>
+<p>作为一个经常使用npm的人，我选择了第一种安装方式。<br><code>npm install -g typescript</code><br>安装完成之后，就可以开始编写了。如果使用ts语法，那么所有的文件后缀名都是 <strong>.ts</strong>。<br>第一个函数，打招呼<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function greeter(person: string) &#123;</span><br><span class="line">    return &apos;hello,&apos; + person;</span><br><span class="line">&#125;</span><br><span class="line">let user = &apos;che&apos;;</span><br><span class="line">document.body.textContent = greeter(user)</span><br></pre></td></tr></table></figure></p>
+<p>写成之后，需要编译<br><code>tsc greeter.ts</code><br>就会得到一个greeter.js，然后就可以运行在我们的项目中了。<br>在函数中，有一个 <strong>: string</strong> 和之前的js有些不同，这就是对函数中，传入的变量类型的声明。</p>
+<h5 id="类型声明"><a href="#类型声明" class="headerlink" title="类型声明"></a>类型声明</h5><p>如果在声明了变量的类型之后，在调用函数时，传入其他类型的变量，则会报变量类型的错误。这也就在一定程度上规范了函数调用时，传入变量的类型。但是虽然会报错，但是greeter.js依然被创建成功了，而且也能显示错误的自变量。所以，如果在ts中有任何的报错，依然是可以使用的。就像在这个事例中，ts报错了但是，代码并没有因为这个报错而不运行，代码依然按照用户期望的的结果运行。</p>
+<h5 id="接口（interface）"><a href="#接口（interface）" class="headerlink" title="接口（interface）"></a>接口（interface）</h5><p>ts中可以用interface来描述对象的属性，在ts中，如果两个类型的内部结构是兼容，那这两个类型就是兼容的。这就允许我们通过接口所需要的结构来实现接口，不需要显示的写implement语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    firstName: string;</span><br><span class="line">    lastName: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greeter(person: Person) &#123;</span><br><span class="line">    return &quot;Hello, &quot; + person.firstName + &quot; &quot; + person.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let user = &#123; firstName: &quot;Yully&quot;, lastName: &quot;che&quot; &#125;;</span><br><span class="line"></span><br><span class="line">document.body.textContent = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<h5 id="类（class）"><a href="#类（class）" class="headerlink" title="类（class）"></a>类（class）</h5><p>ts支持js的新属性，例如支持面向对象基于类的编程。<br>创建一个学生类，包括这个类的构造函数和一些公共属性。可以注意到，类和接口可以很好的配合使用，使程序员更好的确定需要抽象的级别。<br>还需要注意的是，对public构造函数使用on参数是一种简写的方式，可以自动创建具有该名称的属性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Student &#123;</span><br><span class="line">    fullName: string;</span><br><span class="line">    constructor(public firstName: string, public middleInitial: string, public lastName: string) &#123;</span><br><span class="line">        this.fullName = firstName + &quot; &quot; + middleInitial + &quot; &quot; + lastName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Person &#123;</span><br><span class="line">    firstName: string;</span><br><span class="line">    lastName: string;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function greeter(person: Person) &#123;</span><br><span class="line">    return &quot;Hello, &quot; + person.firstName + &quot; &quot; + person.lastName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let user = new Student(&quot;first&quot;, &quot;middle&quot;, &quot;last&quot;);</span><br><span class="line"></span><br><span class="line">document.body.textContent = greeter(user);</span><br></pre></td></tr></table></figure></p>
+<p>运行greeter.ts这个文件，生成的js文件和之前看到的代码是一样的。ts中的类是js中经常使用的基于原型OO的简写。</p>
+<h5 id="在项目中运行ts"><a href="#在项目中运行ts" class="headerlink" title="在项目中运行ts"></a>在项目中运行ts</h5><p>在greeter.html中可以这么写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;&lt;title&gt;TypeScript Greeter&lt;/title&gt;&lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;script src=&quot;greeter.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="二、ts手册"><a href="#二、ts手册" class="headerlink" title="二、ts手册"></a>二、ts手册</h4><h5 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h5><p>在编程中，需要使用一些最简单的数据单元：数字、字符串、结构、布尔值等等。在ts中，有和js差不多的基本类型，和更方便的枚举类型。<br><strong>布尔值</strong><br>最基础的数据类型，只有简单的两个值：true和false。在js和ts中，都叫做布尔值。<br><code>let isDone: boolean = false;</code><br><strong>数值</strong><br>js中和ts中的数都是浮点数。这些浮点数的类型叫“number”，除了十六进制和十进制，ts还支持es2015引入的二进制和八进制。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let decimal: number = 6;</span><br><span class="line">let hex: number = 0xf00d;</span><br><span class="line">let binary: number = 0b1010;</span><br><span class="line">let octal: number = 0o744;</span><br></pre></td></tr></table></figure></p>
+<p><strong>字符串</strong><br>字符串是不论由js写成的网页还是服务器端运行的程序的另一个基本部分。和其他的语言一样，我们用string来表示字符串。和js一样，ts也是用单引号或者双引号来包住字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let color: string = &quot;blue&quot;;</span><br><span class="line">color = &apos;red&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>当然还可以使用模版字符串，可以跨越多行并具有嵌入式表达式这些字符串用反引号包住，并且嵌入式的表达形式为<code>${expr}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let fullName: string = `Yully CC`;</span><br><span class="line">let age: number = 24;</span><br><span class="line">let sentence: string = `Hello, my name is $&#123; fullName &#125;.</span><br><span class="line"></span><br><span class="line">I&apos;ll be $&#123; age + 1 &#125; years old next month.`;</span><br></pre></td></tr></table></figure></p>
+<p>这样等效于以下声明句子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sentence: string = &quot;Hello, my name is &quot; + fullName + &quot;.\n\n&quot; +</span><br><span class="line">    &quot;I&apos;ll be &quot; + (age + 1) + &quot; years old next month.&quot;;</span><br></pre></td></tr></table></figure></p>
+<p><strong>数组</strong><br>ts和js一样，允许程序员用数组来编写。数组类型可以用一下两种方式来编写：</p>
+<ol>
+<li>使用的元素的类型后跟[]表示该元素类型的数组<br><code>let list: number[] = [1, 2, 3];</code></li>
+<li>使用通用数组类型<code>Array&lt;elemType&gt;</code><br><code>let list: Array&lt;number&gt; = [1, 2, 3];</code></li>
+</ol>
+<p><strong>元组</strong><br>元组类型允许开发者用有限的已知类型的元素来表示数组，类型不用一致。例如可以用一个字符串和一个数字来表示一个值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Declare a tuple type</span><br><span class="line">let x: [string, number];</span><br><span class="line">// Initialize it</span><br><span class="line">x = [&quot;hello&quot;, 10]; // OK</span><br><span class="line">// Initialize it incorrectly</span><br><span class="line">x = [10, &quot;hello&quot;]; // Error</span><br></pre></td></tr></table></figure></p>
+<p>当访问具有已知索引的元素时，将检索正确的类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(x[0].substring(1)); // OK</span><br><span class="line">console.log(x[1].substring(1)); // Error, &apos;number&apos; does not have &apos;substring&apos;</span><br></pre></td></tr></table></figure></p>
+<p>当访问一组已知索引之外的元素失败，并显示一下错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x[3] = &quot;world&quot;; // Error, Property &apos;3&apos; does not exist on type &apos;[string, number]&apos;.</span><br><span class="line"></span><br><span class="line">console.log(x[5].toString()); // Error, Property &apos;5&apos; does not exist on type &apos;[string, number]&apos;.</span><br></pre></td></tr></table></figure></p>
+<p><strong>枚举</strong><br>js对标准数据类型一个补充，是一种友好的给数字赋予名字的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>通常情况下，枚举类型第一个是从0开始的，可以手动的设置枚举类型的值。例如，可以设置开始的元素不是0而是1。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>以下代码可以实现设置最开始的元素是1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green, Blue&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>当然也可以手动对枚举类型中的所有值赋值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green = 2, Blue = 4&#125;</span><br><span class="line">let c: Color = Color.Green;</span><br></pre></td></tr></table></figure></p>
+<p>使用枚举类型的一个比较方便的地方在于可以在枚举类型中，完成从数值到具体值得转变。比如有一堆值，不确定2在Color上的映射的值，我们可以查找对应的名称：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum Color &#123;Red = 1, Green, Blue&#125;</span><br><span class="line">let colorName: string = Color[2];</span><br><span class="line"></span><br><span class="line">console.log(colorName); // Displays &apos;Green&apos; as its value is 2 above</span><br></pre></td></tr></table></figure></p>
+<p><strong>任意值（Any）</strong><br>在编写程序的时候我们需要去描述一些我们不知道的类型。这些值可能是变化的内容，来自用户或者第三方库。在这些情况下，希望不去检查值得类型，并且让这些值通过编译检查，这个时候需要用any来标记这些值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let notSure: any = 4;</span><br><span class="line">notSure = &quot;maybe a string instead&quot;;</span><br><span class="line">notSure = false; // okay, definitely a boolean</span><br></pre></td></tr></table></figure></p>
+<p>任意值类型是一个很有效的方法，尤其是用现有的js的开发者，可以逐步的在编译的时候选择加入或者去掉类型检查。你可能期望用对象来扮演一个差不多的角色，在其他的语言里的确可以做到这一点。然而，对象类型只允许复制操作，不能调用任意方法，即使是已经存在的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let notSure: any = 4;</span><br><span class="line">notSure.ifItExists(); // okay, ifItExists might exist at runtime</span><br><span class="line">notSure.toFixed(); // okay, toFixed exists (but the compiler doesn&apos;t check)</span><br><span class="line"></span><br><span class="line">let prettySure: Object = 4;</span><br><span class="line">prettySure.toFixed(); // Error: Property &apos;toFixed&apos; doesn&apos;t exist on type &apos;Object&apos;.</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：要避免使用Object类型，非原始的对象类型。</p>
+</blockquote>
+<p>any类型也支持只知道部分的数据时的表示。<br>比如有一个数组，但是数组里有不同的类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let list: any[] = [1, true, &quot;free&quot;];</span><br><span class="line"></span><br><span class="line">list[1] = 100;</span><br></pre></td></tr></table></figure></p>
+<p><strong>空</strong><br>和any相反：根本没有任何的类型。通常是把这个视为不返回值得函数的返回类型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function warnUser(): void &#123;</span><br><span class="line">    console.log(&quot;This is my warning message&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上的写法，对于声明的void类型没有起作用，因为只能分配null或undefined。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let unusable: void = undefined;</span><br><span class="line">unusable = null; // OK if `--strictNullChecks` is not given</span><br></pre></td></tr></table></figure></p>
+<p><strong>Null和Undefined</strong><br>在ts里，undefined和null通常有他们的类型名：undefined和null。很像void，单纯用他们本身，是没用的，一般用于对返回值的处理。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// Not much else we can assign to these variables!</span><br><span class="line">let u: undefined = undefined;</span><br><span class="line">let n: null = null;</span><br></pre></td></tr></table></figure></p>
+<p>一般情况下，null和undefined是其他类型的子类型。这意味着可以给其他的类型比如数值类型的变量赋null或者undefined。<br>然而，当用–strictNullChecks这个标志的时候，null和undefined就只能赋值给any和各自的类型（除了undefined也可以分配给void）。这有助于避免许多常见的错误，如果要传递一个值或者是字符串、或者是null或者是undefined的时候，可以用联合类型，string|null|undefined。<br>联合类型是一个进阶的话题，这里不继续学习。<br>注意：ts官方是鼓励可能的话，使用<code>--strictNullChecks</code>标志。<br><strong>永远不存在（Never）</strong><br>never类型永远不存在的类型。比如never可以作为抛出异常或永不返回的异常的函数表达式或箭头函数表达式的返回类型。<br>never类型是子类型，可以分配给每一种类型。但是么有类型是never（never本身除外）的子类型可以分配给它的子类型。甚至any也不能分配给never。<br>函数返回never的实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// Function returning never must have unreachable end point</span><br><span class="line">function error(message: string): never &#123;</span><br><span class="line">    throw new Error(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Inferred return type is never</span><br><span class="line">function fail() &#123;</span><br><span class="line">    return error(&quot;Something failed&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Function returning never must have unreachable end point</span><br><span class="line">function infiniteLoop(): never &#123;</span><br><span class="line">    while (true) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>对象</strong><br>object表示非原始型的对象类型，不是number、string、boolean、symbol、null或undefined。<br>通过object类型，接口可以用Object.create表示。比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">declare function create(o: object | null): void;</span><br><span class="line"></span><br><span class="line">create(&#123; prop: 0 &#125;); // OK</span><br><span class="line">create(null); // OK</span><br><span class="line"></span><br><span class="line">create(42); // Error</span><br><span class="line">create(&quot;string&quot;); // Error</span><br><span class="line">create(false); // Error</span><br><span class="line">create(undefined); // Error</span><br></pre></td></tr></table></figure></p>
+<p><strong>类型断言</strong><br>有时候，开发者比ts更了解值得情况。所以，知道某个对象的类型可能比当前的类型更具体的时候，可以使用类型断言。<br>类型断言是一种告诉编译器“相信我，我知道我在干嘛”的方法。类型断言就像其他语言中的类型转换一样，但是不执行任何特殊的数据检查或重组。对运行时间没有影响，仅影响编译器。ts假定开发者已经执行了所需要的任何特殊检查。<br>类型断言有两种形式：<br>一种是“尖括号”语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let someValue: any = &quot;this is a string&quot;;</span><br><span class="line"></span><br><span class="line">let strLength: number = (&lt;string&gt;someValue).length;</span><br></pre></td></tr></table></figure></p>
+<p>另一个是as<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let someValue: any = &quot;this is a string&quot;;</span><br><span class="line"></span><br><span class="line">let strLength: number = (someValue as string).length;</span><br></pre></td></tr></table></figure></p>
+<p>这两种方法是一样，第一种比第二种用的更广泛，但是当jsx和ts一起用的时候，只能用as的这种写法。<br><strong>关于let的建议</strong><br>到目前，一直在使用let关键词，而不是var。因为let这个关键字已经被认为是标准，比var更安全。应该多用let，至于var尽量不要用。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>我想喝焦糖咖啡星冰乐啊</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="Yully 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="Yully 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Yully
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/02/24/从0学习TypeScript/" title="从0学习TypeScript">http://yoursite.com/2019/02/24/从0学习TypeScript/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门学习/" rel="tag"><i class="fa fa-tag"></i> 入门学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/02/从0学习react/" rel="next" title="从0学习react">
+                <i class="fa fa-chevron-left"></i> 从0学习react
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Yully">
+            
+              <p class="site-author-name" itemprop="name">Yully</p>
+              <p class="site-description motion-element" itemprop="description">程序媛的博客，爱吃语法糖，经常探索一些新事物。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#任何事物的出现都有其必然性和偶然性，存在即合理。"><span class="nav-number">1.</span> <span class="nav-text">任何事物的出现都有其必然性和偶然性，存在即合理。</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#一、TypeScript的五分钟入门"><span class="nav-number"></span> <span class="nav-text">一、TypeScript的五分钟入门</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#类型声明"><span class="nav-number">1.</span> <span class="nav-text">类型声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接口（interface）"><span class="nav-number">2.</span> <span class="nav-text">接口（interface）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类（class）"><span class="nav-number">3.</span> <span class="nav-text">类（class）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在项目中运行ts"><span class="nav-number">4.</span> <span class="nav-text">在项目中运行ts</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、ts手册"><span class="nav-number"></span> <span class="nav-text">二、ts手册</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本类型"><span class="nav-number">1.</span> <span class="nav-text">基本类型</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-fish"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yully</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: true,
+        notify: true,
+        appId: 'YEC87M1sAn83otGTUpQVrJvU-gzGzoHsz',
+        appKey: '1mnDTCrDvhWtCtXdL1j1PQ4r',
+        placeholder: 'Hello world~Love & Peace',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("YEC87M1sAn83otGTUpQVrJvU-gzGzoHsz", "1mnDTCrDvhWtCtXdL1j1PQ4r");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
