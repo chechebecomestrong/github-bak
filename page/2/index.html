@@ -394,13 +394,18 @@
       
         
           
-            <blockquote>
-<p><a href="https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c" target="_blank" rel="noopener">https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c</a></p>
-</blockquote>
-<p>来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。<br>把这篇文章简单的结构说一下：<br>基础知识：<br>HTML<br>HTML语法<br>拆分页面<br>CSS<br>CSS语法<br>Grid和Flexbox<br>媒体查询和响应式布局<br>JavaScript<br>JavaScript语法<br>操作DOM<br>作用域、闭包、变量提升<br>Ajax（XHR）<br>ES6特性<br>使用HTML/CSS/JavaScript写一个网站<br>为GitHub提PR<br>优化UI<br>解决issue<br>重构代码<br>包管理工具<br>npm<br>yarn<br>使用npm或者yarn模块<br>CSS预处理器：增强CSS的功能，比如支持变量、计算以及函数等<br>Sass<br>Postcss<br>Less<br>stylus<br>CSS框架<br>bootstrap<br>materialize CSS<br>bulma<br>CSS规范：大型前段项目的CSS会变得混乱，难以维护，需要使用规范<br>bem<br>oocss<br>smacss<br>suitcss<br>atomic<br>构建工具：包括代码校验、任务管理以及文件打包工具<br>代码校验<br>eslint<br>jslint<br>jshint<br>jscs<br>任务管理<br>npm script<br>gulp<br>grunt<br>文件打包<br>webpack<br>rollup<br>parcel<br>开发一个npm模块：到了这一步就完成了75%了！写一个npm模块，开源道GitHub上并且发布）<br>前端框架：任一选择一个，不要选angularJs1<br>react.js<br>redux<br>mobx<br>vuejs<br>vuex<br>angular<br>rx.js<br>type script<br>使用框架开发网站，学习如何进行性能优化<br>测试：自动化测试可以有效提高效率<br>jest<br>mocha<br>protractor<br>karma<br>enzyme<br>progressive web app：学习service worker和pwa<br>静态类型检查<br>type script<br>flow<br>服务器渲染<br>react<br>next.js<br>after.js<br>angular<br>universal<br>vuejs<br>nuxt.js<br>其他技术<br>canvas<br>HTML-5 APIs<br>SVG<br>source map<br>函数式编程<br>TC39<br>剩下的没有提及到的就继续探索吧。毕竟学无止境。比如<br>web GL<br>web component<br>web assembly</p>
-<p>可以看出，我们有很多的进步空间。国内的前端和国外的前端的注重点还是不同的，比如css预处理器、css规范这两个，好像我们国内的前端并不是很重视。<br>但是可以肯定的是，基础知识是很重要的，基础知识学了之后要注意巩固。<br>温故而知新。</p>
-
           
+https://medium.com/tech-tajawal/modern-frontend-developer-in-2018-4c2072fa2b9c
+
+来自外网的大手写的前端工程师的成长路线。结合当前的各种流行趋势依旧技术发展。感觉写的不错，值得我们借鉴。而且其中的一些说法也值得我们思考。
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/07/2018年前端工程师的成长路线/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -570,13 +575,17 @@
       
         
           
-            <p>最近在写npm包相关的内容。<br>在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。<br>于是，想了下能不能对UI进行自动化测试？<br>答案是肯定的。<br>首当其冲的，则是UI Recorder。<br>是阿里巴巴的开源项目。<br>官方的介绍十分的高大上：</p>
-<blockquote>
-<p>UI Recorder 是一款零成本UI自动化录制工具，类似于Selenium IDE.<br>UI Recorder 要比Selenium IDE更加强大!<br>UI Recorder 非常简单易用.</p>
-</blockquote>
-<p>官方网站: <a href="http://uirecorder.com/" target="_blank" rel="noopener">http://uirecorder.com/</a><br>语言切换: English, 中文<br>变更日志: CHANGE<br>视频教程：PC中文教程<br>功能<br>支持所有用户行为: 键盘事件, 鼠标事件, alert, 文件上传, 拖放, svg, shadow dom<br>支持无线native app(Android, iOS)录制, 基于macaca实现: <a href="https://macacajs.com/" target="_blank" rel="noopener">https://macacajs.com/</a><br>无干扰录制: 和正常测试无任何区别，无需任何交互<br>录制用例存储在本地<br>支持丰富的断言类型: val,text,displayed,enabled,selected,attr,css,url,title,cookie,localStorage,sessionStorage<br>支持图片对比<br>支持强大的变量字符串<br>支持公共测试用例: 允许用例中动态调用另外一个<br>支持并发测试<br>支持多国语言: 英文, 简体中文, 繁体中文<br>支持单步截图<br>支持HTML报告和JUnit报告<br>全系统支持: Windows, Mac, Linux<br>基于Nodejs的测试用例: jWebDriver<br>因为node操作起来相对较为简便。所以选择用node来探索。<br>工欲善其事必先利其器<br>1、安装<br>首先安装node 安装Chrome 安装ui recorder、mocha<br>安装完之后，需要对环境进行补充，需要另外安装Java sdk，jwedriver<br>在把环境都安装好之后，就可以进行测试了。<br>2、测试步骤<br>首先，新建一个文件夹。<br>然后进入测试环节：<br>（1）uirdcorder init 配置好之后在用ui recorder的环境  会生成一些配置文件<br>（2）生成的json文件中，可以修改config.json使配置更加符合自己的情况，而且也可以修改在init的时候配置错误的选项。<br>（3）修改好配置文件后，就可以开始录制测试用例了。<br>指令为 uirecorder start  测试用例名<br>测试用例名以.spec.js结尾<br>然后会有一些关于录制时的配置需要进一步的确定。都确认之后，终端会成为所谓的录制服务器，内部的驱动会拉起系统的浏览器。<br>这个时候会拉起两个浏览器，一个是录制浏览器，一个是检验浏览器，所有的录制动作都是在录制浏览器进行的，检验浏览器会重复录制浏览器的动作，然后在录制服务器中显示测试结果。<br>录制浏览器会有一个输入框，即输入要测试的内容，这里可以是一个url，也可以是一个脚本。点击开始录制即真正了进入了测试过程。<br>录制界面会有一排按钮框，悬浮可移动。<br>有添加悬停、添加断言、使用变量、脚本跳转、结束录制等功能。<br>在经过一些列的测试之后，可以结束录制。这个时候在录制中的所有的操作都以代码的形式出现在刚刚的.spec.js文件中。<br>所以，这个文件可以用来回看。回看需要mocha。<br>mocha 测试用例名<br>这样就可以回看刚刚的录制。<br>然后在终端，会出现各种测试动作的结果。<br>有mocha的加入，就有了可以文本化测试结果的可能。<br>source run.sh 测试用例名<br>这个时候除了会回放录制的动作，回放完后会生成一份测试报告<br>测试报告中除了一般的单元测试测试报告中显示的各项数据外，还有录制动作的截图。<br>可以实时、带代码块、带测试结果的了解整个测试过程。<br>金无足赤人无完人。<br>软件也都不是完美的：<br>这款测试框架：<br>只适用于一般的dom操作，以及一般的dom写的ui。<br>不适合我们公司的ui框架。因为我们公司的ui框架写的很精细，正常的写法测不出来。<br>如果硬写也能写出来，但是到时候测试的代码可能比开发代码还多。这样就会导致测试的成本过高。<br>因此，这个ui测试，以后可以在表格、一般的dom操作中使用。不适合用来测试本公司前端的ui框架。<br>所以，这个ui测试框架，不再做进一不的探究。需要的时候，用其基本的写法即可。</p>
+          最近在写npm包相关的内容。在写到单元测试相关内容的时候，想到当前的单元测试只限于检查一系列的js代码的正确性和相关性。于是，想了下能不能对UI进行自动化测试？答案是肯定的。首当其冲的，则是UI Recorder。是阿里巴巴的开源项目。官方的介绍十分的高大上：
 
-          
+UI Recorder 是一款零成本
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/09/04/ui自动化测试探索——ui-recorder/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -746,24 +755,19 @@
       
         
           
-            <p>首先，为了能直观的看到提交的记录的相关信息</p>
-<p>用了webhook</p>
-<p>但是这个webhook只是一个监听接口，监听用户对gitlab的动作<br>返回的动作返回的都是已完成的动作<br>可以对返回的动作做进一步的数据分析但是如果想规范一些东西，只能通过一些提醒来实现</p>
-<p>所以这个在一定意义上，并不能实现对git的一些控制</p>
-<p>所以需要在源头上来做这些东西：<br>于是<br>只能启用<br>githooks</p>
-<p>虽然中文资料少，但是git官网上对githooks的解释很清楚。</p>
-<p>于是，开始探索githooks</p>
-<p>首先：通读文档</p>
-<p>然后，寻找githooks的node module</p>
-<p>然后，找到了</p>
-<p>在githooks文档里所能实现的功能在githooks的node模块里全都有</p>
-<p>为了实现所有的相关的对commit的规范，<br>引用了validate commit msg这个功能<br>引入正则<br>全都设置好后，就可以试试看了</p>
-<p>提交的时候故意写的不规范<br>确实，提交不上</p>
-<p>只有在规范的commit才能提交上</p>
-<p>规范的commit还有另一个好处，就是可以在把每次的commit打印成一个文档。可以明确的看到每次提交后都做了什么，简洁明了。</p>
-<p>npm install -g conventional-changelog-cli<br>conventional-changelog -p angular -i CHANGELOG.md -s<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">feat：新功能（feature）</span><br><span class="line">fix：修补bug</span><br><span class="line">docs：文档（documentation）</span><br><span class="line">style： 格式（不影响代码运行的变动）</span><br><span class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</span><br><span class="line">test：增加测试</span><br><span class="line">chore：构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure></p>
-
-          
+          首先，为了能直观的看到提交的记录的相关信息
+用了webhook
+但是这个webhook只是一个监听接口，监听用户对gitlab的动作返回的动作返回的都是已完成的动作可以对返回的动作做进一步的数据分析但是如果想规范一些东西，只能通过一些提醒来实现
+所以这个在一定意义上，并不能实现对git的一些控制
+所
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/07/对githook的进一步理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -933,14 +937,17 @@
       
         
           
-            <p>2018年8月6日<br>Git一般的使用场景：<br>一般是旧项目<br>一般直接<code>git clone</code><br>修改完后再次上传的时候  配置文件也是之前写好的</p>
-<p>然鹅……<br>今天下午，面对一个新的项目，什么都没有……然后，git就变得很佛性</p>
-<p>分享一个佛性的我面对佛性的git的心路历程：<br>按部就班，<br><code>git init</code><br><code>git add .</code><br><code>git commit</code><br>然后之后<code>git push</code>就可以了<br>但是，失败了。<br>发现，是因为没有master。<br>没有master，什么都是0。<br>添加了master后，打了个分支，然后高高兴兴上传。<br>依旧失败。<br>查找原因，可能是本地分支没有关联远程分支的原因。<br>删除分支，重新创建分支。<br>上传成功！……但是发现：文件结构多了一层。<br>删除分支，重新上传。<br>上传成功！……但是发现：有node_modules和mac自带的文件<br>于是想起来要有一个gitignore文件。<br>写了个最简单的gitignore文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node_modules/</span><br><span class="line">node_modules/*</span><br><span class="line">.DS_Store</span><br></pre></td></tr></table></figure></p>
-<p>删掉分支，再次上传。<br>gitignore并没有发挥作用。<br>重写了gitignore但是没有用。<br>然后，考虑到git的缓存的问题。<br>于是<br><code>git status</code><br>真的是有缓存文件。<br><code>git clean</code>出场<br>删除 <code>untracked files</code><br><code>git clean -f</code></p>
-<p>连 untracked 的目录也一起删掉<br><code>git clean -fd</code></p>
-<p>连 gitignore 的untrack 文件/目录也一起删掉 （慎用，一般这个是用来删掉编译出来的 .o之类的文件用的）<br><code>git clean -xfd</code><br>以上这三条，没有起作用。<br>最后尝试，<br><code>git rm -r --cached .</code><br>这才终于把缓存清掉。<br>上传。成功！git ignore也发挥了作用。<br>git虽然几乎天天用，但是经常用于旧项目，在应对新项目时竟然出了这么多的幺蛾子、<br>基础是进步的基石，共勉！</p>
-
-          
+          2018年8月6日Git一般的使用场景：一般是旧项目一般直接git clone修改完后再次上传的时候  配置文件也是之前写好的
+然鹅……今天下午，面对一个新的项目，什么都没有……然后，git就变得很佛性
+分享一个佛性的我面对佛性的git的心路历程：按部就班，git initgit add .git 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/06/git佛系命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1110,17 +1117,23 @@
       
         
           
-            <blockquote>
-<ul>
-<li>把使用清单作为起点，不断根据需求的变化进行优化。</li>
-<li>多多记录在代码审查时发现的问题，就能够确定那些常犯的错误，然后量身定制一个清单。</li>
-<li>删除那些没有出现过的错误</li>
-<li>也可以保留那些出现概率很小，但是非常关键的项目，比如安全相关的问题</li>
-</ul>
-</blockquote>
-<p>下面是整理的在code的时候可能出现的问题：<br><strong>常见代码问题</strong><br>空值<br>防御式编程，判空处理，有胜于无<br>未捕获潜在的异常<br>API返回做判断<br>切忌默默吞掉异常（线上的有些代码可能会捕捉或者抛出异常，但是在code review的时候要尽量弄懂异常出现的原因以及探索解决的方法）<br>防御式编程<br>低性能<br>批量调用接口<br>处理超时<br>降维多重循环<br>多层对象嵌套调用<br>影响范围过大<br>谨慎修改公共函数、基础函数、基类等<br>充分测试<br>评估影响范围<br>单元测试问题<br>重要业务逻辑必有单元测试<br>单元测试需要全部通过<br>代码BUG或变更单元测试覆盖<br>增加异常单元测试<br>与原有业务逻辑不兼容<br>充分理解已有逻辑及设计<br>缺乏必要日志<br>重要而关键的实例状态、代码路径及API调用，INFO日志以及预料外传入的参数<br>异常捕获Error<br>错误码不符合规范<br>遵循团队规范<br>参数检测缺乏或不足<br>参数值类型<br>参数业务类型<br>契约式编程<br>API参数传输错误<br>参数类型具体化<br>避免相邻的参数是同类型<br>引用错误<br>有多个引用时应该检查引用名称，避免在跨度比较大的范围内使用多个引用<br>添加新的方法名时避免重名<br>细节错误<br>可选布尔参数默认值应为false<br>数组越界<br>JSON解析出错<br>函数参数传递出错<br>API版本不对<br>使用未经测试的代码<br>不成熟的算法<br>相等比较<br>避免依赖类型转换<br>多重条件<br>拆分为有业务语义的单个条件的组合<br>文不符实<br>查询接口中有更新/新增甚至删除操作，引发故障的定时炸弹<br>跨语言交互<br>空值、json、数组的不同解析，encodeURI类的方法行为的不一致<br>接口与交互约定<br>开发接口设计要符合小而美，正交的特性<br>命名要贴切一致<br>参数要指明约束<br>枚举参数要给出列表<br>结果返回要规范一致，尽可能的给出返回值，如无必要，避免写void方法<br>联调确认<br>可维护性问题<br>可维护问题是在当前业务变更的范围内通常不会导致bug、故障，却会在日后埋雷，引发bug和故障、维护成本大幅增加<br>硬编码<br>多处定义某个变量，并且变量的值相同：使用含义明显的枚举或常量<br>写死的配置（配置项）：不影响业务功能，但出现环境变更的时候就会稍显麻烦。尽量将配置抽离出来做成配置项放到配置文件里<br>临时加的逻辑和文案（抽离管理）：抽离出来放在单独的函数或方法里，并特别加以注释。<br>重复代码<br>维护事实一致性：抽离通用的部分，定制差异<br>创造新函数时，先看看是否有此类方法已经实现过<br>通用逻辑与业务逻辑耦合<br>先祈福，然后抽离一个新的函数，严格判断相应条件满足后去调用<br>如果是新创建逻辑，使用函数式编程或基于接口的编程：可以将通用处理流程抽离出来，而将具体业务逻辑以回调函数的形式传入处理<br>不要让不同的业务共用相同的函数，每个业务都有各自的函数，并可复用相同的通用逻辑和流程处理<br>通用逻辑应该确保功能单一<br>复用而非混杂<br>直接在原方法里加逻辑<br>增加了原方法的长度，破坏了可维护性，另一方面，对原方法的既有逻辑造成破坏。<br>方法：新增一个函数，然后在原方法中调用并说明原因（或者在条件允许的时候反过来，新方法调用原方法）<br>多业务耦合<br>先划分业务边界，定义好接口设计和服务依赖关系，再着手开发<br>代码层次不合理<br>代码改动逻辑是正确的，然而代码的存放位置不符合当前架构设计约定，导致后续维护成本增加<br>代码的放置位置不符合当前架构设计约定<br>代码层次不合理可能导致重复代码<br>多余或废弃的代码<br>工程中有一些不用的代码或者是暂时用到的util工具或库函数，或者由于业务变更导致已经废弃不用的代码，或者后来又重写的代码。<br>后续维护时会造成困惑<br>方法：确认不用及时删除<br>使用全局变量<br>全局变量并没有“错”，但是一旦出现问题，排查和调试问题的时候会比较麻烦<br>破坏函数的复用性，导致可维护性变差。<br>代码块越长，全局变量的作用域越广，不易理解和调试<br>缺乏必要的解释<br>重要和关键点的代码应该有必要的解释，使用的重要算法缺乏必要的引用出处。对特殊的处理要有必要的说明<br>原则上，每个方法至少用一个简短的单行注释，适宜地描述方法的用途、业务逻辑、作者及日期。<br>对于特殊甚至奇葩的需求的特别实现，更要加一些注释，从而后续维护有基础。<br>较轻微问题<br>没有技术难度，通过良好的习惯即可避免的问题<br>命名不贴切<br>取贴切的名字<br>声明时未初始化<br>赋予默认初始值<br>风格与整体不一致<br>在工程项目中，遵循工程约定的风格<br>在个人项目中，可以凸显个性风格<br>类型转换错误<br>转换前判断类型<br>避免类型转换<br>否定式风格<br>使用肯定句式，避免双重否定<br>API参数传递错误<br>留意顺序正确<br>参数太多时，使用key-value对象作为options或config传递<br>单行调用括号过多<br>在写一个语句内有多个参数多个括号的时候，如果再结合api参数传递错误，IDE没有报错，并且自己也没有意识到错误。<br>可以拆除一部分变量，并将调用之间的括号用空格隔开，显示出层次感<br>修改方法签名<br>不要修改原方法的参数顺序<br>在最后面增加可选参数<br>最好的方法是：新建一个方法取复用原方法，然后调用新方法。<br>打印日志太多<br>仅保留必需日志<br>多级数据结构<br>确保父级结构的数据存在<br>作用域过大<br>仅在需要时定义和使用<br>分支与循环<br>if-else嵌套条件，需要仔细检查是否符合业务逻辑，如果嵌套太深，是否可以换另一种方式解结<br>switch语句，case要注意加break，最好加default处理<br>for循环，要注意结束条件合理避免死循环。对于循环变量的控制，避免出现+1或-1的错误，消除越界错误<br>注*for循环也要特别注意空值和空容器的处理，避免抛出空值异常。通过单测来确保for循环的准确性<br>复杂隐蔽问题<br>复杂并发场景下的有一定技术难度的、需要丰富开发与设计经验才能看出来的错误<br>安全问题<br>严格检查和屏蔽非法输入<br>敏感信息加密通信<br>业务处理后消除敏感私密问题<br>角色、权限、操作、数据访问分级和控制<br>设计问题<br>潜在的性能问题<br>安全问题<br>扩展性问题<br>其他可能遗漏的问题</p>
-
           
+
+把使用清单作为起点，不断根据需求的变化进行优化。
+多多记录在代码审查时发现的问题，就能够确定那些常犯的错误，然后量身定制一个清单。
+删除那些没有出现过的错误
+也可以保留那些出现概率很小，但是非常关键的项目，比如安全相关的问题
+
+
+下面是整理的在code的时候可能出现的问题：常见代码问题空值防御式
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/30/code-review-清单/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1290,17 +1303,15 @@
       
         
           
-            <p>随着写的代码量不断的增加，慢慢就接触了封装这个概念。<br>从一开始的写前后端交互，<br>当时是web的上机课：<br>用的是现在已经很少用的jsp。<br>做的是一个简单的网上商城，用Struts2框架。<br>（现在想来，貌似了解框架比封装的概念要早很多）<br>当是是学了用orm来映射数据库后，顺理成章的也写进了框架里。<br>老师给我们定了3个任务。<br>1、查询所有的用户<br>2、查询所有的书并且进行分页<br>3、查询某位用户买了什么书，并且分页<br>老师说能做出前两个的，上机课就给优秀，三个都做出来的是满分。<br>那肯定每个人都是奔着满分去的。<br>拿到题目后我就开始分析：</p>
-<p>第一个就是简单的再Struts2框架里，使用orm关系映射数据库取值。<br>第二个是在第一个的基础上，加上分页。在那个数据库刚开始会用，sql语句刚熟练的时代，做个分页就觉得很有技术含量了。<br>第三个比第二个还要难，难在sql语句。要做条件查询。</p>
-<p>乍一看，需要写3个方法啊。<br>但是稍微的写一下这三个方法的时候，就发现，结构很一样。<br>结构一样，只是传的参数不一样。<br>所以貌似可以写到一个函数里。然后根据传入参数的不同，用不一样的sql，从而取到对应的值。<br>虽然当时还不知道封装这个词，但是我有这样一种想法：<br>把这3个写到一个里面，然后哪里用到了就去调用，外加传参。</p>
-<p>当时在写这个函数的时候，写的很简单，类似于以下这种结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function fun(num,userid)&#123;</span><br><span class="line">  数组a，里面装了三条sql；</span><br><span class="line">sql=a[num];</span><br><span class="line">只有在第三条sql语句里，才用得着userid；</span><br><span class="line">sql语句确定了之后，就可以向后端请求数据了。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>写完后还觉得心里美滋滋，觉得是个很巧妙的想法。</p>
-<p>随着后面在学校里还有其他的上机课，<br>这个函自己又重新写了，让这个函数脱离了那个最原始的情景。可以适配其他的情景。</p>
-<p>这可能是我写web端以来第一次那么有意识的去对一个函数做封装。<br>这个阶段暂且叫做封装思想的萌芽吧。</p>
-<p>有了一点点理解我就暂且叫做虾米阶段吧。</p>
-<p>等有了更多的经验再来写进阶阶段。<br>「未完待续」</p>
-
-          
+          随着写的代码量不断的增加，慢慢就接触了封装这个概念。从一开始的写前后端交互，当时是web的上机课：用的是现在已经很少用的jsp。做的是一个简单的网上商城，用Struts2框架。（现在想来，貌似了解框架比封装的概念要早很多）当是是学了用orm来映射数据库后，顺理成章的也写进了框架里。老师给我们定了3个
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/13/对于封装组件的思考/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1470,18 +1481,16 @@
       
         
           
-            <p>1、所有的marko都有的问题<br>即lasso的问题，在npm的建议下安装了最新版后，<br>还需要再安装一下@lasso/marko-taglib<br><code>npm install --save @lasso/marko-taglib</code></p>
-<p>2、npm install的时候报错<br>ChromeDriver installation failed Error with http(s) request: Error: read ETIMEDOUT<br>解决方法为：<br><code>npm install chromedriver --chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver</code></p>
-<p>3、关于marko打包的问题</p>
-<p>在marko中打包，<br>需要关注lasso</p>
-<p><a href="https://github.com/lasso-js/lasso#using-lassojs-taglib-with-marko" target="_blank" rel="noopener">https://github.com/lasso-js/lasso#using-lassojs-taglib-with-marko</a><br>以上网址为相关的官方的lasso项目，对lasso有详细的解释</p>
-<p>在经过学习后，了解到以下的设置：</p>
-<p>在server中要设置：<br>require(‘lasso’).configure({});<br>*configure里什么也不写表示用marko的默认的设置<br>在routes文件夹下的每个文件夹下需要新建文件browser.json来标明这个文件夹下的index.marko对应的依赖关系</p>
-<p>eg:<br>在server.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">require(&apos;lasso&apos;).configure(&#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        &apos;lasso-marko&apos; // Allow Marko templates to be compiled and transported to the browser  lasso在marko下的插件</span><br><span class="line">    ],</span><br><span class="line">    outputDir: __dirname + &apos;/static&apos;, // Place all generated JS/CSS/etc. files into the &quot;static&quot; dir   打包后的输出路径</span><br><span class="line">    bundlingEnabled: isProduction, // Only enable bundling in production  打包环境</span><br><span class="line">    minify: isProduction, // Only minify JS and CSS code in production  不保留格式</span><br><span class="line">    fingerprintsEnabled: isProduction, // Only add fingerprints to URLs in production</span><br><span class="line">    bundles: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;name&quot;: &quot;base&quot;, //打包后的文件名前缀</span><br><span class="line">            &quot;dependencies&quot;: [       //列举依赖关系</span><br><span class="line">                &quot;./...&#123;文件地址&#125;…/demo1.js&quot;,</span><br><span class="line">                &quot;./...&#123;文件地址&#125;…/demo2.js&quot;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>在routes文件夹下，demo文件夹中<br>1、新建  browser.json<br>2、写如下格式的代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;dependencies&quot;: [</span><br><span class="line">       &quot;./...&#123;文件地址&#125;…/demo1.js&quot;,</span><br><span class="line">      &quot;./...&#123;文件地址&#125;…/demo2.js&quot;，</span><br><span class="line">      &quot;./...&#123;文件地址&#125;…/demo3.js&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在设置完以上操作后，对项目进行测试。<br>示例项目中的打包情况如下：<br>demo文件夹里的browser.json文件里陈述了对应的依赖关系里有demo1.js、demo2.js和demo3.js，会有一个以demo开头的js文件。<br>在server.js里对demo1.js和demo2.js进行了特殊的设置，把这两个文件打包成一个以base开头的js文件。<br>在浏览器中查看着两个js文件中的内容，两个文件中的内容并没有相同的部门。<br>由此可以这么理解，在json文件中，只表明了依赖关系，如果不进行特殊设置的话，会把所有的依赖都打在同一个js文件里，但是如果在server.js进行了特殊的指定，那么被特殊指定的js文件会单独打包。<br>所有的依赖关系，都会被打包，并且只打包一次。</p>
-
-          
+          1、所有的marko都有的问题即lasso的问题，在npm的建议下安装了最新版后，还需要再安装一下@lasso/marko-taglibnpm install --save @lasso/marko-taglib
+2、npm install的时候报错ChromeDriver installation
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/12/markojs的插件安装问题以及对打包的理解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1651,10 +1660,15 @@
       
         
           
-            <p>node中很容易出现异步的问题，为了避免出现钩子陷阱，所以出现了promise这种写法。<br>从而就会有这样的情景：<br>在某个方法中，promisify的request连同获取的数据也一并封在了promise对象里。<br>要想把promise中的数据取出来，我也想了很多办法，像处理平时的对象那样，以把对象转化成字符这种思想为中心，各种方法用过了一遍。<br>好吧，最后承认promise对象和其他的对象不一样。<br>只能去网络上搜索相关的方。<br>首先是这么一种答案：取不出来的。<br>然后呢？然后就没有然后了。<br>继续搜，最后终于有了另一种答案：promise里取不出，可以换个方法啊，比如用async/await之类的，反正和promise一样都是消除异步的……这个答案，相当于是曲线救国了。换async/await是可以，但是如果换，就要整个封装的函数进行大改，而且，async/await属于新语法，支不支持还不知道……再结合我要实现的功能，感觉前面还有一些个大坑等着我。<br>既然写成了promise而且也把request promisify了，硬着头皮，进一步搜索。<br>果然，搜索引擎是强大的。<br>找到了一个明白人说的答案，显然是可以把值取出来。<br>我理解的是这样的：<br>首先有这样的前提：<br>promise有三个状态，pending，resolve，reject。每个promise都是从pending到resolve或者reject。当promise到了resolve或者reject状态后，peomise就不再变了。<br>基于这样的前提下：<br>那么在promise中的数据也就不会变了。<br>当return这个promise后，promise的数据也会被return。<br>好的，下一步就是特别重要的.then()方法<br>也许，很多人一看，这有什么，我也用过，不就是promise.then()方法吗？<br>但是这个.then()方法值得我们好好讨论一下<br>——此处占位写.then()的相关资料——-<br>在看了很多的资料后，有一个特别通俗的说法：这个.then()方法可以认为是一个callback()，后面可以搭配.catch()可以捕捉来自promise里的错误，不用设置reject，就可以把错误捕捉到。</p>
-<p>在eg.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">demo:function ()&#123;</span><br><span class="line">var promise = new promise((resolve,reject)=&gt;&#123;</span><br><span class="line">//写个取值的操作</span><br><span class="line">&#125;);</span><br><span class="line">return promise;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在另一个文件中调用的时候：</span><br><span class="line">var eg = require(&apos;/eg.js&apos;);</span><br><span class="line">var p = eg.demo;</span><br><span class="line">p.then(function(data))&#123;</span><br><span class="line">console.log(data);</span><br><span class="line">//在此处可以写对数据的操作</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          node中很容易出现异步的问题，为了避免出现钩子陷阱，所以出现了promise这种写法。从而就会有这样的情景：在某个方法中，promisify的request连同获取的数据也一并封在了promise对象里。要想把promise中的数据取出来，我也想了很多办法，像处理平时的对象那样，以把对象转化成字符
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/11/从promise里面取值/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1824,9 +1838,16 @@
       
         
           
-            <h3 id="基础是进步的基石。"><a href="#基础是进步的基石。" class="headerlink" title="基础是进步的基石。"></a>基础是进步的基石。</h3><p>运动框架实现思路<br>1、速度（改变值left,right,width,height,opacity）匀速运动<br>2、缓冲运动<br>3、多物体运动<br>4、任意值运动<br>5、链式运动<br>6、同时运动</p>
+          基础是进步的基石。运动框架实现思路1、速度（改变值left,right,width,height,opacity）匀速运动2、缓冲运动3、多物体运动4、任意值运动5、链式运动6、同时运动
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/09/JS动画/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1996,17 +2017,16 @@
       
         
           
-            <h3 id="基础是进步的基石。"><a href="#基础是进步的基石。" class="headerlink" title="基础是进步的基石。"></a>基础是进步的基石。</h3><p>JS和HTML的交互基于事件。<br><br>事件流<br>描述的是从页面中接受事件的顺序<br>IE：事件冒泡流<br>Netscape：事件捕获流</p>
-<p>事件冒泡：即事件最开始由最具体的元素（文档中嵌套层次最深的那个节点）接收，逐级向上传播至最不具体的那个节点（文档）。<br>click在input-&gt;div-&gt;body-&gt;document</p>
-<p>事件捕获：不太具体的节点应该更早接收到事件， 而最具体的节点最后接收到事件。<br>document-&gt;body-&gt;div-&gt;input<br>使用事件处理程序<br>1、HTML事件处理程序<br>把事件直接加在HTML结构里。<br>缺点：HTML和JS代码紧密耦合<br>2、DOM0级事件处理程序<br>把一个函数赋值给一个事件的处理程序属性，是用的比较多的方法<br>简单，跨浏览器<br>先取一个元素，把事件作为元素的属性，没有HTML事件的缺点。<br>var btn = document.getElementById(‘dd);<br>btn.onclick=function(){}<br>btn.onclick=null;//取消了onclick事件<br>3、DOM2级事件处理程序<br>定义了两个方法：<br>用于处理指定和删除事件处理程序的操作<br>addEventListener()和removeEventListener()<br>接收3个参数：<br>要处理的事件名、作为事件处理程序的函数和布尔值（true：事件捕获，false：事件冒泡）<br>var btn = document.getElementById(‘dd);<br>btn.addEventListener(‘click’,fun,false); //onclick换成click，onmouseover换成mouseover,以此类比，设置成false作为一个冒泡事件从而让大多数浏览器兼容<br>btn.removeEventListener(‘click’,fun,false)  //传递和addEventListenery一样的参数才能删除，而且addEventListener的事件必须由removeEventListener才能删除<br>DOM0级和DOM2级可以添加多个事件以及多个事件处理程序<br>但是IE不支持，因此以下是IE的事件处理程序<br>4、IE事件处理程序<br>两个参数，事件处理程序的名称和事件处理程序的函数<br>attachEvent()添加事件<br>detachEvent()删除事件<br>不使用第三个参数的原因是：IE8以及以前的版本只支持事件冒泡。<br>var btn = document.getElementById(‘dd);<br>btn.attachEvent(‘onclick’,fun); //这个时候的事件又要加on了，后面第二个参数是函数名<br>btn.detachEvent(‘onclick’,fun) //删除事件<br>5、跨浏览器的事件处理程序<br>可以封装在一个对象内，能力检测<br>var eventUtil = {<br>    //添加事件<br>    addfun:function(element,type,handler){      //type传没有on的<br>        if(element.addEventListener){           //DOM2级<br>            element.addEventListener(type,handler,false);<br>        }else if(element.attachEvent){          //IE<br>            element.attachEvent(‘on’+type,handler)<br>        }else{                                  //DOM0级<br>            element[‘on’+type]=handler;                              //element.onclick === element[‘onclick]<br>        }<br>    }<br>    //同理，可写删除事件<br>}<br>事件对象：在出发DOM上的事件时都会产生一个对象<br>事件对象event<br>1、DOM中的事件对象<br>function f(event){<br>    alert(event.type)<br>    alert(event.target)<br>    event.stopPropagation();   //阻止事件冒泡<br>}<br>属性：<br>type事件类型<br>target事件目标<br>方法：<br>stopPropagation()阻止事件冒泡<br>preventDefault()阻止事件的默认行为<br>另外还有<br>bubbles<br>canselable<br>等等事件对象<br>2、IE事件对象<br>属性：<br>type 事件类型<br>srcElement 事件来源<br>function f(event){<br>    event = event||window.event; //IE8之前都是window.event<br>    var ele = event.target||event.srcElement;<br>    alert(ele)<br>}<br>cancelBubble 用于阻止事件冒泡 //true表示阻止冒泡，false为不阻止冒泡<br>returnValue 用于阻止事件的默认行为 //false表示阻止事件的默认行为</p>
-<p>不同的事件类型<br>大致分两类<br>鼠标事件<br>键盘事件</p>
-<p>鼠标事件都是在浏览器窗口中的特定位置上发生的。<br>这个位置信息保存在事件的clientX和clientY属性中。<br>所有浏览器都支持这两个属性，<br>它们的值表示事件发生时鼠标指针在视口中的水平和垂直坐标。不包括页面滚动的距离。<br>拖拽demo<br>为了浏览器兼容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">function getByClass(clsName,parent)&#123;</span><br><span class="line">    var oParent = parent?document.getElementById(parent):document,</span><br><span class="line">        eles=[],</span><br><span class="line">        elements=oParent.getElementsByTagName(&apos;*&apos;);</span><br><span class="line">    for(var i=0,l=elements.length;i&lt;l;i++&gt;)&#123;</span><br><span class="line">        if(elements[i].className==className)&#123;</span><br><span class="line">            eles.push(elements[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return eles;</span><br><span class="line">&#125;</span><br><span class="line">window.onload = drag;</span><br><span class="line">function drag()&#123;</span><br><span class="line">    var oTitle = getByClass(&apos;标题&apos;,&apos;面板&apos;)[0];</span><br><span class="line">    //拖拽</span><br><span class="line">    oTitle.onmousedown=fnDown;</span><br><span class="line">    //关闭</span><br><span class="line">    var oclose = document.getElementById(&apos;关闭按钮id&apos;);</span><br><span class="line">    oclose.onclick=function()&#123;</span><br><span class="line">        document.getElementById(&apos;要隐藏的面板id&apos;).style.display = &apos;none&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    //状态切换,初始的时候只有按钮，点击后显示各种状态的ul列表，在每个li上都有一个id的类来显示是什么状态</span><br><span class="line">    var state = document.getElementById(&apos;切换按钮id&apos;)，</span><br><span class="line">        stateList = document.getElementById(&apos;状态列表&apos;),</span><br><span class="line">        lis = stateList.getElementsByTagName(&apos;li&apos;),</span><br><span class="line">        stateTxt = document.getElementById(&apos;状态文本框&apos;),</span><br><span class="line">        stateShow = document.getElementById(&apos;状态显示&apos;);</span><br><span class="line"></span><br><span class="line">    state.onclick = function(e)&#123;</span><br><span class="line">        e = e || window.event;</span><br><span class="line">        //阻止事件冒泡</span><br><span class="line">        if(e.stopPropagation)&#123;</span><br><span class="line">            e.stopPropagation();</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            e.cancelBubble = true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stateList.style.display = &apos;block&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    //鼠标滑过、离开和点击状态列表时</span><br><span class="line">    for(var i =0,l=lis.length;i&lt;l;i++)&#123;</span><br><span class="line">        lis[i].onmouseover=function()&#123;</span><br><span class="line">            this.style.background = &apos;#567&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        lis[i].onmouseout = function()&#123;</span><br><span class="line">            this.style.background = &apos;#fff&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">        lis[i].onclick = function(e)&#123;</span><br><span class="line">            e = e || window.event;  </span><br><span class="line">            //阻止事件冒泡</span><br><span class="line">            if(e.stopPropagation)&#123;</span><br><span class="line">                e.stopPropagation();</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                e.cancelBubble = true;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            var id = this.id;</span><br><span class="line">            stateList.style.display = &apos;none&apos;;</span><br><span class="line">            stateTxt.innerHTML=getByClass(&apos;ul中每个li下的div的类&apos;,id)[0].innerHTML; //父id</span><br><span class="line">            stateShow.className =&apos;&apos;;</span><br><span class="line">            stateShow.className =&apos;原来的类 &apos;+id;//一定要有个空格</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //列表在其他的空白地方应该让状态列表隐藏,但是要注意事件冒泡</span><br><span class="line">    document.onclick = function()&#123;</span><br><span class="line">        stateList.style.display = &apos;none&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function fnDown(event)&#123;</span><br><span class="line">    event = event || window.event;</span><br><span class="line">    var oDrag = document.getElementById(&apos;面板&apos;),</span><br><span class="line">        //光标按下时光标和面板之间的距离</span><br><span class="line">        disX = event.clientX-oDrag.offsetLeft，</span><br><span class="line">        disY = event.clientY-oDrag.offserTop;</span><br><span class="line">        //移动</span><br><span class="line">    document.onmousemove = function(event)&#123;</span><br><span class="line">        event = event || window.event;</span><br><span class="line">        fnMove(event,disX,disY);</span><br><span class="line">    &#125;</span><br><span class="line">    //释放</span><br><span class="line">    document.onmouseup = function()&#123;</span><br><span class="line">        document.onmousemove = null;</span><br><span class="line">        document.onmouseup = null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function fnMove(e,posX,posY)&#123;</span><br><span class="line">    var oDrag = document.getElementById(&apos;面板&apos;),</span><br><span class="line">        l = e.clientX-posX,</span><br><span class="line">        t = e.clientY-posY,</span><br><span class="line">        winW = document.documentElement.clientWidth || document.body.clientWidth,</span><br><span class="line">        winH = document.documentElement.clientHeight || document.body.clentHeight,</span><br><span class="line">        maxW = winW-oDrag.offsetWidth,</span><br><span class="line">        maxH = winH-oDrag.offsetHeight;</span><br><span class="line">    if(l&lt;0)&#123;</span><br><span class="line">        l=0;</span><br><span class="line">    &#125;else if(l&gt;maxW)&#123;</span><br><span class="line">        l=maxW;</span><br><span class="line">    &#125;</span><br><span class="line">    if(t&lt;0)&#123;</span><br><span class="line">        t=0;</span><br><span class="line">    &#125;else if(t&gt;maxH)&#123;</span><br><span class="line">        t=maxH;</span><br><span class="line">    &#125;</span><br><span class="line">    oDrag.style.left = l+&apos;px&apos;;</span><br><span class="line">    oDrag.style.top = t+&apos;px&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>窗口关闭<br><code>document.getElementById(&#39;id&#39;).style.display = &#39;none&#39;;</code></p>
-<p>除了鼠标事件之外，还有键盘事件</p>
-<p>keyDown:当用户按下键盘上的任意键时触发，而且如果按住不放的话，会重复触发此事件<br>keyPress:当用户按下键盘上的字符键时触发，而且如果按住不放的话，会重复触发此事件<br>keyUp:当用户释放键盘上的键时触发，按下然后抬起后触发事件</p>
-<p>event对象的keyCode属性用于得到键盘对应键的键码值</p>
-
-          
+          基础是进步的基石。JS和HTML的交互基于事件。事件流描述的是从页面中接受事件的顺序IE：事件冒泡流Netscape：事件捕获流
+事件冒泡：即事件最开始由最具体的元素（文档中嵌套层次最深的那个节点）接收，逐级向上传播至最不具体的那个节点（文档）。click在input-&gt;div-&gt;bo
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/06/28/DOM事件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
